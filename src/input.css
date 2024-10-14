@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'estedad bold';
+        src: url('../fonts/Estedad-bold.woff2');
+    };
+    @font-face {
+        font-family: 'estedad medium';
+        src: url('../fonts/Estedad-Medium.woff2');
+    };
+    @font-face {
+        font-family: 'estedad regular';
+        src: url('../fonts/Estedad-Regular.woff2');
+    };
+}

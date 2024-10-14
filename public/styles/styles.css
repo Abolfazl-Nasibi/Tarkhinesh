@@ -1,0 +1,17 @@
+@keyframes leftToRight {
+    from{
+        left: -100%;
+    };
+    to{
+        left: 0;
+    }
+} 
+
+@keyframes rightToLeft {
+    from{
+        right: -100%;
+    };
+    to{
+        right: 0;
+    }
+}  
