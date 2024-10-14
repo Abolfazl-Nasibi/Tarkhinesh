@@ -249,6 +249,7 @@ function createMenuItem(obj,isMobile = false){
     }
 }
 
+// products list -------------------------------------------------------------------------------------------------------------
 const products = [
 // Main Dishes
 { id: 1, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Main Dish", price: "180000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 11, score: 5 },
@@ -291,3 +292,118 @@ const products = [
 { id: 31, name: "اسپرسو", src: "../images/products/espresso.png", category: "Drink", price: "50000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
 { id: 32, name: "شیرشکلات", src: "../images/products/chocolate-milk.png", category: "Drink", price: "45000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 }
 ];
+
+// main page slider
+let sliderSlides = [
+    {id : 1 , src : "../images/slider-slide1.png" , text : "تجربه غذای سالم و گیاهی به سبک ترخینه"},
+    {id : 2 , src : "../images/slider-slide2.png" , text : "طعم بی‌نظیر طبیعت!"},
+    {id : 3 , src : "../images/slider-slide3.png" , text : "لذت غذای سالم و گیاهی را با ترخینه تجربه کنید!"}
+]
+
+const slider = document.querySelector('#slider')
+let slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+let index = 0;
+let sliderFragment = document.createDocumentFragment();
+let slideDivHolder = null;
+let slideInnerHtml = "";
+console.log(slider);
+
+sliderSlides.forEach((slide)=>{
+    slideDivHolder = document.createElement('div');
+    slideDivHolder.classList.add('slide','w-full','h-full','absolute','inActive');
+    slideInnerHtml = `
+    <img src=${slide.src} alt="slide image" class="w-full h-full object-cover">
+                    <p class="absolute left-1/2 -translate-x-1/2 top-[128px]  font-estedad-bold text-tint-1 text-4xl">${slide.text}</p>
+                    <a href="#" class="flex items-center justify-center absolute top-56 left-1/2 -translate-x-1/2 w-48 h-10 rounded-lg bg-primary text-white text-base font-estedad-medium">سفارش آنلاین غذا</a>
+    `;
+    slideDivHolder.insertAdjacentHTML('beforeend' , slideInnerHtml);
+    sliderFragment.append(slideDivHolder);
+})
+slider.append(sliderFragment)
+
+nextBtn.addEventListener('click' ,nextSlide);
+
+setInterval(() => {
+    nextSlide()
+}, 3000);
+
+prevBtn.addEventListener('click' , prevSlide)
+
+function nextSlide(){
+    if(index<slides.length-1){
+        index++;
+    }else{
+        index = 0;
+    }
+    slides.forEach((slide)=>{
+        slide.classList.remove('active','inActive');
+    })
+    slides.forEach((slide)=>{
+        if(slide == slides[index]){
+            slide.classList.add('active');
+            slide.style.animation = 'next2 200ms linear';
+        }else if(slide == slides[index-1]){
+            slide.style.animation = 'next1 200ms linear';
+            setTimeout(() => {
+                slide.classList.add('inActive');
+            }, 200);
+        }else{
+            slide.classList.add('inActive')
+        }
+    });
+    searchDot();
+}
+
+function prevSlide(){
+    if(index>0){
+        index--
+    }else{
+        index=slides.length-1;
+    }
+    slides.forEach((slide)=>{
+        slide.classList.remove('active','inActive');
+    })
+    slides.forEach((slide)=>{
+        if(slide == slides[index]){
+            slide.classList.add('active');
+            slide.style.animation = 'prev1 200ms linear';
+        }else if(slide == slides[index+1]){
+            slide.style.animation = 'prev2 200ms linear';
+            setTimeout(() => {
+                slide.classList.add('inActive');
+            }, 200);
+        }else{
+            slide.classList.add('inActive')
+        }
+    });
+    searchDot();
+}
+
+// dots -----------------
+const dotsContainer = document.querySelector('.dots-container');
+let dotsFragment = document.createDocumentFragment();
+let dotsSpanHolder = null;
+
+sliderSlides.forEach((slide)=>{
+    dotsSpanHolder = document.createElement('span');
+    dotsSpanHolder.classList.add('dot','rounded-full','w-2','h-2','bg-gray-5');
+    dotsSpanHolder.setAttribute('attr' , slide.id);
+    dotsFragment.append(dotsSpanHolder);
+})
+dotsContainer.append(dotsFragment)
+
+let dots = document.querySelectorAll('.dot');
+
+function searchDot(){
+
+    dots.forEach((dot)=>{
+        dot.classList.remove('active')
+    });
+    dots.forEach((dot)=>{
+        if(dot.getAttribute('attr')==index+1){
+            dot.classList.add('active')
+        }
+    })
+}

@@ -16,3 +16,34 @@
         src: url('../fonts/Estedad-Regular.woff2');
     };
 }
+
+@layer components {
+    @keyframes next1 {
+        from {left: 0;}
+        to {left: -100%;}
+    }
+    @keyframes next2 {
+        from {left: 100%;}
+        to {left: 0;}
+    }
+    @keyframes prev1 {
+        from {left: -100%;}
+        to {left: 0;}
+    }
+    @keyframes prev2 {
+        from {left: 0;}
+        to {left: 100%;}
+    }
+    
+    .active {
+        display: inline-block;
+    }
+    
+    .inActive {
+        display: none;
+    }
+    
+    .dot.active{
+        @apply rounded-full w-3 h-3 bg-primary;
+    }
+}
