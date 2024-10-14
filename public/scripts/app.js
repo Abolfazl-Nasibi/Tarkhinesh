@@ -32,6 +32,49 @@ mobileMenuCloseBtn.addEventListener('click' , ()=>{
 
 // make menu dynamic --------------------------------------------------------------------------------------------------------------
 // menu objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const menuLinks = [
     {
         id : 1,
@@ -86,10 +129,11 @@ const menuLinks = [
 // desktop menu ----------------------
 const desktopMenuWrapper = document.querySelector('#desktop-menu-wrapper');
 let deskMenuFragment = document.createDocumentFragment();
+
 let menuLiPlaceHolder = null;
 let menuHtmlPlaceHolder = null;
 
-// create branches html holder
+// create branches and food menu html holder
 const branches = [
     {
         id : 1,
@@ -108,18 +152,12 @@ const branches = [
         name : 'ونک'
     }
 ];
+// branches
 let branchesHtmlHolder = '';
 branches.forEach((branch)=>{
-    // branchesLiHolder = document.createElement('li');
-    // branchesHtmlHolder = `<a href="#">${branch.name}</a>`;
-    // branchesLiHolder.innerHTML = branchesHtmlHolder;
-    // branchesFragment.append(branchesLiHolder);
-    branchesHtmlHolder += `<li>
-                            <a href="#">${branch.name}</a>
-                        </li>`;
+    subMenuWritter('branches',branch)
 });
-
-// create foodMenu html holder
+// food menu
 const foodMenu = [
     {
         id : 1,
@@ -140,14 +178,16 @@ const foodMenu = [
 ];
 let foodMenuHtmlHolder = '';
 foodMenu.forEach((food)=>{
-    // branchesLiHolder = document.createElement('li');
-    // branchesHtmlHolder = `<a href="#">${branch.name}</a>`;
-    // branchesLiHolder.innerHTML = branchesHtmlHolder;
-    // branchesFragment.append(branchesLiHolder);
-    foodMenuHtmlHolder += `<li>
-                            <a href="#">${food.name}</a>
-                        </li>`;
+    subMenuWritter('foodMenu',food)
 });
+
+function subMenuWritter(subMenuName,item){
+    if(subMenuName=='branches'){
+        branchesHtmlHolder += `<li><a href="#">${item.name}</a></li>`;
+    }else if(subMenuName == 'foodMenu'){
+        foodMenuHtmlHolder += `<li><a href="#">${item.name}</a></li>`;
+    }
+}
 
 // add menu objects to html menu
 menuLinks.forEach((obj)=>{
@@ -161,25 +201,8 @@ let mobileMenuFragment = document.createDocumentFragment();
 let mobileMenuLiPlaceHolder = null;
 let mobileMenuHtmlPlaceHolder = null;
 
-// create branches html holder
 
-let mobileBranchesHtmlHolder = '';
-branches.forEach((branch)=>{
 
-    mobileBranchesHtmlHolder += `<li>
-                            <a href="#">${branch.name}</a>
-                        </li>`;
-});
-
-// create foodMenu html holder
-
-let mobileFoodMenuHtmlHolder = '';
-foodMenu.forEach((food)=>{
-
-    mobileFoodMenuHtmlHolder += `<li>
-                            <a href="#">${food.name}</a>
-                        </li>`;
-});
 
 // add menu objects to html menu
 menuLinks.forEach((obj)=>{
@@ -217,7 +240,7 @@ function createMenuItem(obj,isMobile = false){
                             <use href="#arrow-down"></use>
                         </svg>
                     </div>
-                <ul class="transition-all child:transition-all hidden group-hover:flex child:hidden group-hover:child:block border-t-0 group-hover:border-t flex-col  border-gray-4 mt-0 group-hover:mt-2 divide-y divide-gray-4 font-estedad-bold text-gray-8 text-2xs child:py-2 child:pr-2 child:w-full">
+                <ul class="${obj.content=='شعبه' ? 'branches-container' : 'foodMenu-container'} transition-all child:transition-all hidden child:hidden group-hover:child:block border-t-0 group-hover:border-t flex-col  border-gray-4 mt-0 group-hover:mt-2 divide-y divide-gray-4 font-estedad-bold text-gray-8 text-2xs child:py-2 child:pr-2 child:w-full">
                 ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
                 </ul>
                 `;
@@ -248,6 +271,53 @@ function createMenuItem(obj,isMobile = false){
             deskMenuFragment.append(menuLiPlaceHolder);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // products list -------------------------------------------------------------------------------------------------------------
 const products = [
@@ -300,29 +370,21 @@ let sliderSlides = [
     {id : 3 , src : "../images/slider-slide3.png" , text : "لذت غذای سالم و گیاهی را با ترخینه تجربه کنید!"}
 ]
 
-const slider = document.querySelector('#slider')
+const slider = document.querySelector('#slider');
+
+
 let slides = document.querySelectorAll('.slide');
 const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
+let slideProduct = null;
+let slideProductDiv = null;
 let index = 0;
-let sliderFragment = document.createDocumentFragment();
-let slideDivHolder = null;
-let slideInnerHtml = "";
-console.log(slider);
 
-sliderSlides.forEach((slide)=>{
-    slideDivHolder = document.createElement('div');
-    slideDivHolder.classList.add('slide','w-full','h-full','absolute','inActive');
-    slideInnerHtml = `
-    <img src=${slide.src} alt="slide image" class="w-full h-full object-cover">
-                    <p class="absolute left-1/2 -translate-x-1/2 top-[128px]  font-estedad-bold text-tint-1 text-4xl">${slide.text}</p>
-                    <a href="#" class="flex items-center justify-center absolute top-56 left-1/2 -translate-x-1/2 w-48 h-10 rounded-lg bg-primary text-white text-base font-estedad-medium">سفارش آنلاین غذا</a>
-    `;
-    slideDivHolder.insertAdjacentHTML('beforeend' , slideInnerHtml);
-    sliderFragment.append(slideDivHolder);
-})
-slider.append(sliderFragment)
+// create an element for slider at page start
+sliderInnerHTmlFiller();
 
+
+// next and prev button
 nextBtn.addEventListener('click' ,nextSlide);
 
 setInterval(() => {
@@ -331,53 +393,43 @@ setInterval(() => {
 
 prevBtn.addEventListener('click' , prevSlide)
 
+function sliderInnerHTmlFiller(side = 'right',currentIndex = index){
+    slideProduct = sliderSlides[currentIndex];
+    slideProductDiv = document.createElement('div');
+    slideProductDiv.classList.add('slide','w-full','h-full','absolute');
+    slideProductDiv.innerHTML = `
+    <img src="${slideProduct.src}" alt="slide image" class="w-full h-full object-cover">
+                    <p class="absolute left-1/2 -translate-x-1/2 top-20 lg:top-[128px] w-full lg:w-auto text-center  font-estedad-bold text-tint-1 text-base lg:text-4xl">${slideProduct.text}</p>
+                    <a href="#" class="flex items-center justify-center absolute top-56 left-1/2 -translate-x-1/2 w-48 h-10 rounded-lg bg-primary text-white text-base font-estedad-medium">سفارش آنلاین غذا</a>
+    `;
+    slideProductDiv.style.animation =(side=='right') ? 'next2 100ms linear' : 'prev1 100ms linear';
+    slider.innerHTML = '';
+    slider.append(slideProductDiv)
+}
+
+// next slide func
 function nextSlide(){
-    if(index<slides.length-1){
-        index++;
-    }else{
+    if(index==sliderSlides.length-1){
         index = 0;
+    }else{
+        index ++;
     }
-    slides.forEach((slide)=>{
-        slide.classList.remove('active','inActive');
-    })
-    slides.forEach((slide)=>{
-        if(slide == slides[index]){
-            slide.classList.add('active');
-            slide.style.animation = 'next2 200ms linear';
-        }else if(slide == slides[index-1]){
-            slide.style.animation = 'next1 200ms linear';
-            setTimeout(() => {
-                slide.classList.add('inActive');
-            }, 200);
-        }else{
-            slide.classList.add('inActive')
-        }
-    });
+    
+    sliderInnerHTmlFiller();
+
     searchDot();
 }
 
+// prev slide func
 function prevSlide(){
-    if(index>0){
-        index--
+    if(index==0){
+        index = sliderSlides.length-1;
     }else{
-        index=slides.length-1;
+        index --;
     }
-    slides.forEach((slide)=>{
-        slide.classList.remove('active','inActive');
-    })
-    slides.forEach((slide)=>{
-        if(slide == slides[index]){
-            slide.classList.add('active');
-            slide.style.animation = 'prev1 200ms linear';
-        }else if(slide == slides[index+1]){
-            slide.style.animation = 'prev2 200ms linear';
-            setTimeout(() => {
-                slide.classList.add('inActive');
-            }, 200);
-        }else{
-            slide.classList.add('inActive')
-        }
-    });
+    
+    sliderInnerHTmlFiller('left');
+
     searchDot();
 }
 
@@ -390,6 +442,13 @@ sliderSlides.forEach((slide)=>{
     dotsSpanHolder = document.createElement('span');
     dotsSpanHolder.classList.add('dot','rounded-full','w-2','h-2','bg-gray-5');
     dotsSpanHolder.setAttribute('attr' , slide.id);
+    dotsSpanHolder.addEventListener('click' , (event)=>{
+        sliderInnerHTmlFiller('right',slide.id-1);
+        dots.forEach((dot)=>{
+            dot.classList.remove('active')
+        });
+        event.target.classList.add('active')
+    })
     dotsFragment.append(dotsSpanHolder);
 })
 dotsContainer.append(dotsFragment)
