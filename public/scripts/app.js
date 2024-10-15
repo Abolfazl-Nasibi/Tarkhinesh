@@ -134,62 +134,29 @@ let menuHtmlPlaceHolder = null;
 
 
 
-// create branches and food menu html holder
+// Data for branches and food menu
 const branches = [
-    {
-        id : 1,
-        name : 'اکباتان'
-    },
-    {
-        id : 2,
-        name : 'چالوس'
-    },
-    {
-        id : 3,
-        name : 'اقدسیه'
-    },
-    {
-        id : 4,
-        name : 'ونک'
-    }
+    { id: 1, name: 'اکباتان' },
+    { id: 2, name: 'چالوس' },
+    { id: 3, name: 'اقدسیه' },
+    { id: 4, name: 'ونک' }
 ];
-// branches
-let branchesHtmlHolder = '';
-branches.forEach((branch)=>{
-    subMenuWritter('branches',branch)
-});
-// food menu
-const foodMenu = [
-    {
-        id : 1,
-        name : 'غذای اصلی'
-    },
-    {
-        id : 2,
-        name : 'پیش غذا'
-    },
-    {
-        id : 3,
-        name : 'دسر'
-    },
-    {
-        id : 4,
-        name : 'نوشیدنی'
-    }
-];
-let foodMenuHtmlHolder = '';
-foodMenu.forEach((food)=>{
-    subMenuWritter('foodMenu',food)
-});
 
-function subMenuWritter(subMenuName,item){
-    if(subMenuName=='branches'){
-        branchesHtmlHolder += `<li><a href="#">${item.name}</a></li>`;
-    }else if(subMenuName == 'foodMenu'){
-        foodMenuHtmlHolder += `<li><a href="#">${item.name}</a></li>`;
-    }
+const foodMenu = [
+    { id: 1, name: 'غذای اصلی' },
+    { id: 2, name: 'پیش غذا' },
+    { id: 3, name: 'دسر' },
+    { id: 4, name: 'نوشیدنی' }
+];
+
+// Function to generate HTML for submenu items
+function subMenuWriter(items) {
+    return items.map(item => `<li><a href="#">${item.name}</a></li>`).join('');
 }
 
+// Generate HTML for branches and food menu
+const branchesHtmlHolder = subMenuWriter(branches);
+const foodMenuHtmlHolder = subMenuWriter(foodMenu);
 
 
 
