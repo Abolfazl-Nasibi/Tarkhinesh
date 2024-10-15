@@ -32,12 +32,7 @@ mobileMenuCloseBtn.addEventListener('click' , ()=>{
 
 // make menu dynamic --------------------------------------------------------------------------------------------------------------
 // menu objects
-
-
-
-
-
-
+              
 
 
 
@@ -133,6 +128,12 @@ let deskMenuFragment = document.createDocumentFragment();
 let menuLiPlaceHolder = null;
 let menuHtmlPlaceHolder = null;
 
+
+
+
+
+
+
 // create branches and food menu html holder
 const branches = [
     {
@@ -189,6 +190,12 @@ function subMenuWritter(subMenuName,item){
     }
 }
 
+
+
+
+
+
+
 // add menu objects to html menu
 menuLinks.forEach((obj)=>{
     createMenuItem(obj,false)
@@ -200,6 +207,8 @@ const mobileMenuWrapper = document.querySelector('#mobile-menu-wrapper');
 let mobileMenuFragment = document.createDocumentFragment();
 let mobileMenuLiPlaceHolder = null;
 let mobileMenuHtmlPlaceHolder = null;
+
+
 
 
 
@@ -240,7 +249,7 @@ function createMenuItem(obj,isMobile = false){
                             <use href="#arrow-down"></use>
                         </svg>
                     </div>
-                <ul class="${obj.content=='شعبه' ? 'branches-container' : 'foodMenu-container'} transition-all child:transition-all hidden child:hidden group-hover:child:block border-t-0 group-hover:border-t flex-col  border-gray-4 mt-0 group-hover:mt-2 divide-y divide-gray-4 font-estedad-bold text-gray-8 text-2xs child:py-2 child:pr-2 child:w-full">
+                <ul class=" bg-white transition-all child:transition-all hidden child:hidden group-hover:child:block border-t-0 group-hover:border-t flex-col  border-gray-4 mt-0 group-hover:mt-2 divide-y divide-gray-4 font-estedad-bold text-gray-8 text-2xs child:py-2 child:pr-2 child:w-full">
                 ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
                 </ul>
                 `;
@@ -261,7 +270,7 @@ function createMenuItem(obj,isMobile = false){
                             <use href="#arrow-down"></use>
                         </svg>
                         <!-- subMenu -->
-                        <ul class="invisible opacity-0 transition-all delay-75 group-hover:visible group-hover:opacity-100 absolute top-[120%] ${obj.content =='شعبه' ? 'left-0' : 'right-0'} flex flex-col w-36 px-2 bg-white text-sm text-gray-8 rounded-md shadow-[0_0px_6px_rgba(0,0,0,0.1)] divide-y divide-gray-3 child:inline-block child:py-2">
+                        <ul class="invisible z-10 opacity-0 transition-all delay-75 group-hover:visible group-hover:opacity-100 absolute top-[120%] ${obj.content =='شعبه' ? 'left-0' : 'right-0'} flex flex-col w-36 px-2 bg-white text-sm text-gray-8 rounded-md shadow-[0_0px_6px_rgba(0,0,0,0.1)] divide-y divide-gray-3 child:inline-block child:py-2">
                         ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
                         </ul>
             `;
@@ -271,12 +280,6 @@ function createMenuItem(obj,isMobile = false){
             deskMenuFragment.append(menuLiPlaceHolder);
     }
 }
-
-
-
-
-
-
 
 
 

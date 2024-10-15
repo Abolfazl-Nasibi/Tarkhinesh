@@ -712,6 +712,14 @@ video {
   z-index: 20;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
+.z-30 {
+  z-index: 30;
+}
+
 .mt-0 {
   margin-top: 0px;
 }
@@ -917,10 +925,6 @@ video {
 
 .border-t-0 {
   border-top-width: 0px;
-}
-
-.border-t {
-  border-top-width: 1px;
 }
 
 .border-gray-4 {
