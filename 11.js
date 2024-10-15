@@ -1,11 +1,11 @@
-// mobile menu element selection ----------------------------------------------------------------------------------------------------
+// mobile menu open and close ----------------------------------------------------------------------------------------------------
 
 const mobileMenuIcon = document.querySelector('#mobile-menu-icon');
 const mobileMenuBox = document.querySelector('#mobile-menu-box');
 const mobileMenuCloseBtn = document.querySelector('#mobile-menu-close');
 const mobileMenuBlur = document.querySelector('#mobile-menu-box-blur');
 
-// open mobile menu
+// mobile menu open
 mobileMenuIcon.addEventListener('click' , ()=>{
     mobileMenuIcon.classList.add('active');
 
@@ -18,7 +18,7 @@ mobileMenuIcon.addEventListener('click' , ()=>{
     mobileMenuBox.style.animation = 'rightToLeft 100ms linear'
 })
 
-// close mobile menu 
+// mobile menu close
 mobileMenuCloseBtn.addEventListener('click' , ()=>{
     mobileMenuIcon.classList.remove('active');
 
@@ -31,7 +31,45 @@ mobileMenuCloseBtn.addEventListener('click' , ()=>{
 })
 
 // make menu dynamic --------------------------------------------------------------------------------------------------------------
-// menu data definition
+// menu objects
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const menuLinks = [
     {
         id : 1,
@@ -83,7 +121,14 @@ const menuLinks = [
     },
 ];
 
-// Data for branches and foodMenu
+
+
+
+
+
+
+
+// Data for branches and food menu
 const branches = [
     { id: 1, name: 'اکباتان' },
     { id: 2, name: 'چالوس' },
@@ -98,90 +143,147 @@ const foodMenu = [
     { id: 4, name: 'نوشیدنی' }
 ];
 
-// generate HTML for submenu items
+// Function to generate HTML for submenu items
 function subMenuWriter(items) {
     return items.map(item => `<li><a href="#">${item.name}</a></li>`).join('');
 }
 
-// Generate submenu HTML for branches and food menu
+// Generate HTML for branches and food menu
 const branchesHtmlHolder = subMenuWriter(branches);
 const foodMenuHtmlHolder = subMenuWriter(foodMenu);
 
-// menu variables
+
+
+
+
+
+// desktop menu ----------------------
 const desktopMenuWrapper = document.querySelector('#desktop-menu-wrapper');
 const mobileMenuWrapper = document.querySelector('#mobile-menu-wrapper');
 
-let desktopMenuFragment = document.createDocumentFragment();
-let mobileMenuFragment = document.createDocumentFragment();
+let menuFragment = document.createDocumentFragment();
 let menuLiPlaceHolder = null;
 let menuHtmlPlaceHolder = null;
 
-let menuActiveClass = null;
-
-// add menu elements to desktop
+// add menu objects to html menu
 menuLinks.forEach((obj)=>{
     createMenuItem(obj,false)
 });
-// add menu elements to mobile
-desktopMenuWrapper.append(desktopMenuFragment);
+// add menu objects to mobile html menu
+desktopMenuWrapper.append(menuFragment);
 menuLinks.forEach((obj)=>{
-    if(obj.hasMobileMenu){
     createMenuItem(obj,true)
-    }
 });
-mobileMenuWrapper.append(mobileMenuFragment);
+mobileMenuWrapper.append(menuFragment);
 
-// function to create and append menu items
+
+
+
+
+
 function createMenuItem(obj,isMobile = false){
     menuLiPlaceHolder = document.createElement('li');
-    menuActiveClass = obj.active ? (isMobile ? 'text-xs font-estedad-regular text-primary' : 'font-estedad-bold text-primary border-b border-primary') : '';
-    if(!obj.hasSub){
-        menuHtmlPlaceHolder = `<a href="#" class="${menuActiveClass}">
-                                    ${isMobile&&obj.hasMobileMenu ? `<svg class="w-4 h-4"><use href="#${obj.iconName}"></use></svg>` :``}
-                                    ${obj.content}
-                                </a>`;
-                
-    }else{
-        if(isMobile){
-            menuHtmlPlaceHolder = `
+    if(isMobile){
+        if(obj.hasMobileMenu){
+            if(obj.active){
+                menuLiPlaceHolder.classList = 'text-xs font-estedad-regular text-primary'
+            }
+            if(!obj.hasSub){
+                menuHtmlPlaceHolder = `
+                <a href="#">
+                    <svg class="w-4 h-4">
+                        <use href="#${obj.iconName}"></use>
+                    </svg>
+                    <span>${obj.content}</span>
+                </a>
+                `;
+            }else{
+                menuHtmlPlaceHolder = `
                 <div class="flex items-center justify-between">
                     <div class="flex items-center gap-x-1">
-                        <svg class="w-3 h-3">
-                            <use href="#${obj.iconName}"></use>
+                            <svg class="w-3 h-3">
+                                <use href="#${obj.iconName}"></use>
+                            </svg>
+                            <span>${obj.content}</span>
+                        </div>
+                        <svg class="w-4 h-4 group-hover:rotate-180 transition-all">
+                            <use href="#arrow-down"></use>
                         </svg>
-                        <span>${obj.content}</span>
                     </div>
-                    <svg class="w-4 h-4 group-hover:rotate-180 transition-all">
-                        <use href="#arrow-down"></use>
-                    </svg>
-                </div>
                 <ul class=" bg-white transition-all child:transition-all hidden child:hidden group-hover:child:block border-t-0 group-hover:border-t flex-col  border-gray-4 mt-0 group-hover:mt-2 divide-y divide-gray-4 font-estedad-bold text-gray-8 text-2xs child:py-2 child:pr-2 child:w-full">
                 ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
                 </ul>
                 `;
-            menuLiPlaceHolder.classList.add('group')
+                menuLiPlaceHolder.classList.add('group')
+            }
+                menuLiPlaceHolder.innerHTML = menuHtmlPlaceHolder;
+                menuFragment.append(menuLiPlaceHolder);
+        }
+    }else{
+        if(!obj.hasSub){
+            menuHtmlPlaceHolder = `
+            <a href="#" class="${obj.active ? 'font-estedad-bold text-primary border-b border-primary' : ''}">${obj.content}</a>
+            `;
         }else{
             menuHtmlPlaceHolder = `
-                <a href="#" class="${obj.active ? 'font-estedad-bold text-primary border-b border-primary' : ''}">${obj.content}</a>
-                <svg class="w-4 h-4">
-                    <use href="#arrow-down"></use>
-                </svg>
-                <ul class="invisible z-10 opacity-0 transition-all delay-75 group-hover:visible group-hover:opacity-100 absolute top-[120%] ${obj.content =='شعبه' ? 'left-0' : 'right-0'} flex flex-col w-36 px-2 bg-white text-sm text-gray-8 rounded-md shadow-[0_0px_6px_rgba(0,0,0,0.1)] divide-y divide-gray-3 child:inline-block child:py-2">
-                ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
-                </ul>
-                `;
-            menuLiPlaceHolder.classList.add('group','flex','items-center','relative','gap-x-1','cursor-pointer');
+            <a href="#" class="${obj.active ? 'font-estedad-bold text-primary border-b border-primary' : ''}">${obj.content}</a>
+                        <svg class="w-4 h-4">
+                            <use href="#arrow-down"></use>
+                        </svg>
+                        <!-- subMenu -->
+                        <ul class="invisible z-10 opacity-0 transition-all delay-75 group-hover:visible group-hover:opacity-100 absolute top-[120%] ${obj.content =='شعبه' ? 'left-0' : 'right-0'} flex flex-col w-36 px-2 bg-white text-sm text-gray-8 rounded-md shadow-[0_0px_6px_rgba(0,0,0,0.1)] divide-y divide-gray-3 child:inline-block child:py-2">
+                        ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
+                        </ul>
+            `;
+            menuLiPlaceHolder.classList.add('group','flex','items-center','relative','gap-x-1','cursor-pointer')
         }
-    }
-    menuLiPlaceHolder.innerHTML = menuHtmlPlaceHolder;
-    if(isMobile){
-        mobileMenuFragment.append(menuLiPlaceHolder);
-    }else{
-        desktopMenuFragment.append(menuLiPlaceHolder)
+            menuLiPlaceHolder.innerHTML = menuHtmlPlaceHolder;
+            menuFragment.append(menuLiPlaceHolder);
     }
 }
 
-// products items definition(product list) -------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// products list -------------------------------------------------------------------------------------------------------------
 const products = [
 // Main Dishes
 { id: 1, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Main Dish", price: "180000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 11, score: 5 },
@@ -225,16 +327,16 @@ const products = [
 { id: 32, name: "شیرشکلات", src: "../images/products/chocolate-milk.png", category: "Drink", price: "45000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 }
 ];
 
-// main page slider--------------------------------------------------------------------------------------------------------------------
-// slider slides definition
+// main page slider
 let sliderSlides = [
     {id : 1 , src : "../images/slider-slide1.png" , text : "تجربه غذای سالم و گیاهی به سبک ترخینه"},
     {id : 2 , src : "../images/slider-slide2.png" , text : "طعم بی‌نظیر طبیعت!"},
     {id : 3 , src : "../images/slider-slide3.png" , text : "لذت غذای سالم و گیاهی را با ترخینه تجربه کنید!"}
 ]
 
-// slider elements and variables
 const slider = document.querySelector('#slider');
+
+
 let slides = document.querySelectorAll('.slide');
 const nextBtn = document.querySelector('.next');
 const prevBtn = document.querySelector('.prev');
@@ -242,20 +344,19 @@ let slideProduct = null;
 let slideProductDiv = null;
 let index = 0;
 
-// initilize the slider with first slide
+// create an element for slider at page start
 sliderInnerHTmlFiller();
 
 
-// next and prev button event listener
+// next and prev button
 nextBtn.addEventListener('click' ,nextSlide);
-prevBtn.addEventListener('click' , prevSlide)
 
-// slider auto move next
 setInterval(() => {
     nextSlide()
 }, 3000);
 
-// function to fill slider inner html
+prevBtn.addEventListener('click' , prevSlide)
+
 function sliderInnerHTmlFiller(side = 'right',currentIndex = index){
     slideProduct = sliderSlides[currentIndex];
     slideProductDiv = document.createElement('div');
