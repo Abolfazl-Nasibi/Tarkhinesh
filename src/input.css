@@ -46,4 +46,10 @@
     .dot.active{
         @apply rounded-full w-3 h-3 bg-primary;
     }
+
+    #about-section {
+        background-image: url('../images/about-bg.png');
+        background-position: center;
+        background-size: cover;
+    }
 }
