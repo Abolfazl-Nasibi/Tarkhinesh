@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/app.css">
     <script src="../scripts/app.js" defer></script>
 </head>
-<body class="font-estedad-regular overflow-x-hidden">
+<body class="relative font-estedad-regular overflow-x-hidden">
     <!-- all app icons -->
     <svg class="hidden">
 
@@ -103,7 +103,7 @@
         <!-- search & cart & profile -->
         <div class="flex items-center gap-x-2 text-primary child:p-1 lg:child:p-2 child:bg-tint-1 child:rounded ">  
             <!-- search -->
-            <a href="#">
+            <a id="search-icon" href="#">
                 <svg class="w-4 h-4 lg:w-6 lg:h-6">
                     <use href="#search"></use>
                 </svg>
@@ -115,12 +115,12 @@
                 </svg>
             </a>
             <!-- profile -->
-            <div class="group relative z-10">
+            <div class="group relative">
                 <svg class="w-4 h-4 lg:w-6 lg:h-6">
                     <use href="#user"></use>
                 </svg>
                 <!-- subMenu -->
-                <ul class="invisible opacity-0 transition-all delay-75 group-hover:visible group-hover:opacity-100 absolute top-[120%] left-0 flex flex-col w-36 px-2 bg-white text-sm text-gray-8 rounded-md shadow-[0_0px_6px_rgba(0,0,0,0.1)] divide-y divide-gray-3 child:py-2 child:flex child:gap-x-1 child:items-center">
+                <ul class="z-10 invisible opacity-0 transition-all delay-75 group-hover:visible group-hover:opacity-100 absolute top-[120%] left-0 flex flex-col w-36 px-2 bg-white text-sm text-gray-8 rounded-md shadow-[0_0px_6px_rgba(0,0,0,0.1)] divide-y divide-gray-3 child:py-2 child:flex child:gap-x-1 child:items-center">
                     <li>
                         <svg class="w-4 h-4">
                             <use href="#user"></use>
@@ -235,9 +235,11 @@
         <!-- restaurant menu section -->
         <section id="restaurantMenu flex flex-col">
             <!-- mobile search box -->
-            <div>
-                <input type="text" placeholder="جستجو">
-                <svg></svg>
+            <div class="lg:hidden flex justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-sm">
+                <input class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
+                <svg class="w-4 h-4">
+                    <use href="#search"></use>
+                </svg>
             </div>
             <!-- restaurant menu container -->
             <div class="w-full h-[466px] relative">
@@ -264,6 +266,24 @@
         </section>
     </main>
 
+    <!-- desktop search box -->
+    <div id="search-box" class="hidden z-20 absolute top-[50vh] -translate-y-1/2 left-1/2 -translate-x-1/2 w-[600px] bg-white rounded-lg overflow-hidden">
+        <div class="relative bg-gray-3">
+            <span class="flex justify-center items-center py-6">جستجو</span>
+            <svg id="search-box-close" class="absolute top-1/2 left-6 -translate-y-1/2 w-10 h-10 text-gray-7 rotate-45">
+                <use href="#close"></use>
+            </svg>
+        </div>
+        <div class="flex flex-col items-center py-10 px-24">
+            <p>لطفا متن خود را تایپ و سپس دکمه Enter را بزنید.</p>
+            <div class="flex  w-full justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-lg">
+                <input class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
+                <svg class="w-4 h-4">
+                    <use href="#search"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
     <!-- overlay -->
     <div id="mobile-menu-box-blur" class="hidden top-0 left-0 w-[100vw] h-[100vh] bg-black/50 backdrop-blur-sm"></div>
 </body>

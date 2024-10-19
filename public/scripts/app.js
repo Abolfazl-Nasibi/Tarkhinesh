@@ -30,6 +30,27 @@ mobileMenuCloseBtn.addEventListener('click' , ()=>{
 
 })
 
+// search icon click -------------------------------------------------------------------------------------------------------------
+const searchIcon = document.querySelector('#search-icon');
+const searchBox = document.querySelector('#search-box');
+const seachBoxCloseButton = document.querySelector('#search-box-close');
+
+searchIcon.addEventListener('click' ,()=>{
+    mobileMenuBlur.classList.remove('hidden');
+    mobileMenuBlur.classList.add('fixed');
+
+    searchBox.classList.remove('hidden');
+    searchBox.classList.add('fixed');
+} )
+
+seachBoxCloseButton.addEventListener('click' , ()=>{
+    mobileMenuBlur.classList.add('hidden');
+    mobileMenuBlur.classList.remove('fixed');
+
+    searchBox.classList.add('hidden');
+    searchBox.classList.remove('fixed');
+})
+
 // make menu dynamic --------------------------------------------------------------------------------------------------------------
 // menu data definition
 const menuLinks = [
