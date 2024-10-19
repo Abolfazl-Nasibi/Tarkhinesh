@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/app.css">
     <script src="../scripts/app.js" defer></script>
 </head>
-<body class="font-estedad-regular">
+<body class="font-estedad-regular overflow-x-hidden">
     <!-- all app icons -->
     <svg class="hidden">
 
@@ -206,25 +206,10 @@
 
     <!-- main page -->
     <main>
-        <!-- main page desktop slider -->
+        <!--slider section -->
         <section id="sliderSection" class="relative">
             
-            <div id="slider" class="w-full h-44 lg:h-[336px] bg-black overflow-hidden relative shadow-2xl">
-                <!-- <div class="slide w-full h-full absolute inActive" >
-                    <img src="../images/slider-slide3.png" alt="slide image" class="w-full h-full object-cover">
-                    <p class="absolute left-1/2 -translate-x-1/2 top-[128px]  font-estedad-bold text-tint-1 text-4xl">تجربه غذای سالم و گیاهی به سبک ترخینه</p>
-                    <a href="#" class="flex items-center justify-center absolute top-56 left-1/2 -translate-x-1/2 w-48 h-10 rounded-lg bg-primary text-white text-base font-estedad-medium">سفارش آنلاین غذا</a>
-                </div>
-                <div class="slide w-full h-full absolute inActive" >
-                    <img src="../images/slider-slide2.png" alt="slide image" class="w-full h-full object-cover">
-                    <p class="absolute left-1/2 -translate-x-1/2 top-[128px]  font-estedad-bold text-tint-1 text-4xl">تجربه غذای سالم و گیاهی به سبک ترخینه</p>
-                    <a href="#" class="flex items-center justify-center absolute top-56 left-1/2 -translate-x-1/2 w-48 h-10 rounded-lg bg-primary text-white text-base font-estedad-medium">سفارش آنلاین غذا</a>
-                </div>
-                <div class="slide w-full h-full absolute inActive" >
-                    <img src="../images/slider-slide1.png" alt="slide image" class="w-full h-full object-cover">
-                    <p class="absolute left-1/2 -translate-x-1/2 top-[128px]  font-estedad-bold text-tint-1 text-4xl">تجربه غذای سالم و گیاهی به سبک ترخینه</p>
-                    <a href="#" class="flex items-center justify-center absolute top-56 left-1/2 -translate-x-1/2 w-48 h-10 rounded-lg bg-primary text-white text-base font-estedad-medium">سفارش آنلاین غذا</a>
-                </div> -->
+            <div id="slider" class="w-full h-44 lg:h-[336px] bg-black overflow-hidden relative">
             </div>
             <!-- next and prev buttons -->
             <button class="hidden lg:inline-block prev absolute left-9 top-36 text-white">
@@ -245,6 +230,37 @@
                 </div>
             </div>
 
+        </section>
+
+        <!-- restaurant menu section -->
+        <section id="restaurantMenu flex flex-col">
+            <!-- mobile search box -->
+            <div>
+                <input type="text" placeholder="جستجو">
+                <svg></svg>
+            </div>
+            <!-- restaurant menu container -->
+            <div class="w-full h-[466px] relative">
+                <span class="absolute left-1/2 -translate-x-1/2 top-12 font-estedad-bold text-2xl">منوی رستوران</span>
+                <div class="flex justify-evenly xl:justify-between flex-wrap pt-40 md:pt-60 px-5 md:px-28 gap-y-28 text-xs xl:text-xl child:relative child:w-[152px] child:h-20  child:mx-2  xl:child:min-w-52 xl:child:h-32 xl:child:mx-0 2xl:child:min-w-72 2xl:child:h-40 child:rounded-xl child:bg-primary child:shadow-xl">
+                    <a href="#">
+                        <img src="../images/resturant-menu-mainDishes.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
+                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">غذای اصلی</span>
+                    </a>
+                    <a href="#">
+                        <img src="../images/resturant-menu-appetizer.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
+                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">پیش غذا</span>
+                    </a>
+                    <a href="#">
+                        <img src="../images/resturant-menu-dessert.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
+                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">دسر</span>
+                    </a>
+                    <a href="#">
+                        <img src="../images/resturant-menu-drinks.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute xl:-top-10 2xl:top-0 -translate-y-1/2 left-0 right-0 mx-auto">
+                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">نوشیدنی</span>
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
 
