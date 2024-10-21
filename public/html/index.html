@@ -276,45 +276,122 @@
 
         <!-- about section -->
         <section id="about-section">
-            <div class="text-white flex justify-between px-28">
+            <div class="text-white flex flex-col lg:flex-row justify-between px-10 xl:px-28">
                 <div class="flex flex-col gap-y-6 py-12">
-                    <span class="font-estedad-bold text-2xl">رستوران‌های زنجیره‌ای ترخینه</span>
-                    <p class="w-[600px] text-xl">مهمان‌نوازی یکی از مهم‌ترین مشخصه‌های ایرانیان است و باعث افتخار ماست که بیش از 20 سال است خدمت‌گزار مردم شریف ایران هستیم. ما در رستوران‌های زنجیره‌ای ترخینه همواره تلاش کردیم که در محیطی اصیل بر پایه معماری و طراحی مدرن در کنار طبیعتی دلنواز، غذایی سالم و درخور شان شما عزیزان ارائه دهیم.</p>
+                    <span class="font-estedad-bold text-base lg:text-2xl">رستوران‌های زنجیره‌ای ترخینه</span>
+                    <p class="w-80  lg:w-[500px] xl:w-[600px] font-estedad-bold lg:font-estedad-regular text-2xs lg:text-xl">مهمان‌نوازی یکی از مهم‌ترین مشخصه‌های ایرانیان است و باعث افتخار ماست که بیش از 20 سال است خدمت‌گزار مردم شریف ایران هستیم. ما در رستوران‌های زنجیره‌ای ترخینه همواره تلاش کردیم که در محیطی اصیل بر پایه معماری و طراحی مدرن در کنار طبیعتی دلنواز، غذایی سالم و درخور شان شما عزیزان ارائه دهیم.</p>
                     <div class="flex items-center justify-end">
-                        <a href="#" class="flex items-center justify-center gap-x-2 w-44 h-10  rounded border border-white">
-                            <span class="text-lg">اطلاعات بیشتر</span>
-                            <svg class="w-6 h-6 rotate-90">
+                        <a href="#" class="flex items-center justify-center gap-x-2 w-40 lg:w-44 h-8 lg:h-10  rounded border border-white">
+                            <span class="text-sm lg:text-lg">اطلاعات بیشتر</span>
+                            <svg class="w-4 h-4 lg:w-6 lg:h-6 rotate-90">
                                 <use href="#arrow-down"></use>
                             </svg>
                         </a>
                     </div>
                 </div>
-                <div class="grid grid-rows-2 grid-cols-2 text-lg py-14 gap-x-6 child:flex child:flex-col child:items-center child:justify-center">
+                <div class="grid grid-rows-2 grid-cols-2 text-lg py-14 gap-y-4 lg:gap-y-0 gap-x-6 child:flex child:flex-col child:items-center child:justify-center child:lg:text-lg child:text-sm">
                     <span>
-                        <svg class=" w-12 h-12">
+                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
                             <use href="#user"></use>
                         </svg>
                         پرسنلی مجرب و حرفه‌ای
                     </span>
                     <span>
-                        <svg class=" w-12 h-12">
+                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
                             <use href="#diagram"></use>
                         </svg>
                         کیفیت بالای غذاها 
                     </span>
                     <span>
-                        <svg class=" w-12 h-12">
+                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
                             <use href="#home-wifi"></use>
                         </svg>
                         محیطی دلنشین و آرام 
                     </span>
                     <span>
-                        <svg class=" w-12 h-12">
+                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
                             <use href="#menu-board"></use>
                         </svg>
                         منوی متنوع 
                     </span>
 
+                </div>
+            </div>
+        </section>
+
+        <!-- branches section -->
+        <section id="branches-section" class="mb-10">
+            <div class="flex justify-center items-center pt-12 pb-6 font-estedad-bold text-2xl text-gray-8">
+                <span>ترخینه گردی</span>
+            </div>
+            <div class="flex justify-center gap-x-6 child:w-72 child:h-[344px] child:border child:border-gray-4 child:rounded-lg child:overflow-hidden">
+                <div class="group">
+                    <img src="../images/branch-1.png" alt="image" class="group-hover:h-48 w-full object-cover transition-all">
+                    <div>
+                        <div class=" flex flex-col pt-2 px-1 space-y-1 justify-center items-center">
+                            <span class="font-estedad-bold text-xl text-gray-8">شعبه اکباتان</span>
+                            <p class="text-gray-7 text-sm">شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم</p>
+                        </div>
+                        <div class="flex justify-center items-end">
+                            <a href="#" class=" hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
+                                صفحه شعبه
+                                <svg class="w-4 h-4 rotate-90">
+                                    <use href="#arrow-down "></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <img src="../images/branch-2.png" alt="image" class="group-hover:h-48 w-full object-cover transition-all">
+                    <div>
+                        <div class=" flex flex-col pt-2 px-1 space-y-1 justify-center items-center">
+                            <span class="font-estedad-bold text-xl text-gray-8">شعبه چالوس</span>
+                            <p class="text-gray-7 text-sm">چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی</p>
+                        </div>
+                        <div class="flex justify-center items-end">
+                            <a href="#" class="hidden group-hover:flex justify-center items-cente mt-2r w-32 h-8 border border-shade-3 rounded">
+                                صفحه شعبه
+                                <svg class="w-4 h-4 rotate-90">
+                                    <use href="#arrow-down "></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <img src="../images/branch-2.png" alt="image" class="group-hover:h-48 w-full object-cover transition-all">
+                    <div>
+                        <div class=" flex flex-col pt-2 px-1 space-y-1 justify-center items-center">
+                            <span class="font-estedad-bold text-xl text-gray-8">شعبه اقدسیه</span>
+                            <p class="text-gray-7 text-sm">خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸</p>
+                        </div>
+                        <div class="flex justify-center items-end">
+                            <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
+                                صفحه شعبه
+                                <svg class="w-4 h-4 rotate-90">
+                                    <use href="#arrow-down "></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <img src="../images/branch-2.png" alt="image" class="group-hover:h-48 w-full object-cover transition-all">
+                    <div>
+                        <div class=" flex flex-col pt-2 px-1 space-y-1 justify-center items-center">
+                            <span class="font-estedad-bold text-xl text-gray-8">شعبه ونک</span>
+                            <p class="text-gray-7 text-sm">میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶</p>
+                        </div>
+                        <div class="flex justify-center items-end">
+                            <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
+                                صفحه شعبه
+                                <svg class="w-4 h-4 rotate-90">
+                                    <use href="#arrow-down "></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
