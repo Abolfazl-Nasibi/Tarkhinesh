@@ -52,4 +52,21 @@
         background-position: center;
         background-size: cover;
     }
+
+    #footer{
+
+    }
+    #footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/footer.png');
+        background-position: center;
+        background-size: cover;
+        filter: brightness(40%); /* Apply brightness to background */
+        z-index: -1; /* Ensure it stays behind the text */
+    }
 }
