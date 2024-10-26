@@ -350,3 +350,10 @@ function searchDot(){
         }
     })
 }
+
+// text area text counter
+const textCounter = document.querySelector('#textarea-length-counter');
+const feedBackArea = document.querySelector('#feedback-textarea');
+feedBackArea.addEventListener('input' , ()=>{
+    textCounter.innerHTML = feedBackArea.value.length + '/150'
+})

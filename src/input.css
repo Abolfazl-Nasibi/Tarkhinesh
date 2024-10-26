@@ -66,7 +66,7 @@
         background-image: url('../images/footer.png');
         background-position: center;
         background-size: cover;
-        filter: brightness(40%); /* Apply brightness to background */
+        filter: brightness(25%); /* Apply brightness to background */
         z-index: -1; /* Ensure it stays behind the text */
     }
 }

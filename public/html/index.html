@@ -448,15 +448,15 @@
     </main>
     <!-- footer -->
     <footer id="footer" class="relative">
-        <div class="w-full h-80 text-gray-3">
+        <div class="flex justify-between w-full h-80 px-28 py-8 text-gray-4">
             <!-- easy access links -->
-            <div>
-                <span>دسترسی آسان</span>
-                <div>
+            <div class="flex flex-col font-estedad-bold gap-y-4">
+                <span class="text-xl text-white">دسترسی آسان</span>
+                <div class="flex flex-col items-center text-sm gap-y-4">
                     <a href="#">پرسش‌های متداول</a>
                     <a href="#">قوانین ترخینه</a>
                     <a href="#">حریم خصوصی</a>
-                    <div>
+                    <div class="flex flex-row items-center gap-x-4">
                         <a href="#">
                             <svg class=" w-6 h-6">   
                                 <use href="#x"></use>
@@ -476,29 +476,31 @@
                 </div>
             </div>
             <!-- branches -->
-            <div>
-                <span>شعبه‌های ترخینه</span>
-                <a href="#">شعبه اکباتان</a>
-                <a href="#">شعبه چالوس</a>
-                <a href="#">شعبه اقدسیه</a>
-                <a href="#">شعبه ونک</a>
+            <div class="flex flex-col font-estedad-bold gap-y-4">
+                <span class="text-xl text-white">شعبه‌های ترخینه</span>
+                <div class="flex flex-col items-center text-sm gap-y-4">
+                    <a href="#">شعبه اکباتان</a>
+                    <a href="#">شعبه چالوس</a>
+                    <a href="#">شعبه اقدسیه</a>
+                    <a href="#">شعبه ونک</a>
+                </div>
             </div>
             <!-- contact -->
-            <div>
-                <span>پیام به ترخینه </span>
-                <div>
-                    <div>
-                        <input type="text" placeholder="نام و نام خانوادگی">
-                        <input type="tel" placeholder="شماره تماس">
-                        <input type="email" placeholder="آدرس ایمیل (اختیاری)">
+            <div class="space-y-4">
+                <span class="text-xl text-white">پیام به ترخینه </span>
+                <div class="flex gap-x-6">
+                    <div class="flex flex-col w-72 gap-y-3">
+                        <input class="bg-[transparent] border border-gray-7 rounded px-4 py-3 text-sm text-right text-gray-1 placeholder:text-gray-3" type="text" placeholder="نام و نام خانوادگی">
+                        <input class="bg-[transparent] border border-gray-7 rounded px-4 py-3 text-sm text-right text-gray-1 placeholder:text-gray-3" type="tel" placeholder="شماره تماس">
+                        <input class="bg-[transparent] border border-gray-7 rounded px-4 py-3 text-sm text-right text-gray-1 placeholder:text-gray-3" type="email" placeholder="آدرس ایمیل (اختیاری)">
                     </div>
-                    <div>
-                        <textarea class="resize-none"></textarea>
+                    <div class="w-72 relative">
+                        <textarea id="feedback-textarea" maxlength="150" class=" bg-[transparent] h-full w-full border border-gray-7 rounded px-4 py-3 text-sm resize-none text-right text-gray-1 placeholder:text-gray-3" placeholder="پیام شما"></textarea>
+                        <span id="textarea-length-counter" class="absolute left-3 bottom-0">0/150</span>
                     </div>
                 </div>
-                <div>
-                    <button>ارسال پیام</button>
-
+                <div class="flex justify-end">
+                    <button class="bg-[transparent] w-40 p-2 border border-gray-7 rounded px-4 py-3 text-sm text-center text-gray-1">ارسال پیام</button>
                 </div>
             </div>
         </div>
