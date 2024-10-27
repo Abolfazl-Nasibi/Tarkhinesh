@@ -1,3 +1,10 @@
+// english number to persian number function (i used chatGPT)
+function convertToPersianNumbers(num) {
+    const persianNumbers = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
+    return num.toString().replace(/\d/g, (digit) => persianNumbers[digit]);
+}
+
+
 // mobile menu element selection ----------------------------------------------------------------------------------------------------
 
 const mobileMenuIcon = document.querySelector('#mobile-menu-icon');
@@ -216,11 +223,7 @@ const products = [
     { id: 22, name: "کله جوش", src: "../images/products/kale-joosh.png", category: "Appetizer", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
     { id: 23, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
     
-    // Desserts
-    { id: 24, name: "پاستا سبزیجات (Dessert)", src: "../images/products/pasta-sabzi.png", category: "Dessert", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
-    { id: 25, name: "دلمه برگ مو (Dessert)", src: "../images/products/dolme-barg.png", category: "Dessert", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
-    { id: 26, name: "کوفته برنجی (Dessert)", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-    { id: 27, name: "پاکورا سبزیجات (Dessert)", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    
     
       
     // Drinks
@@ -230,3 +233,40 @@ const products = [
     { id: 31, name: "اسپرسو", src: "../images/products/espresso.png", category: "Drink", price: "50000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
     { id: 32, name: "شیرشکلات", src: "../images/products/chocolate-milk.png", category: "Drink", price: "45000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 }
     ];
+
+// searching function
+
+const searchedItem = decodeURIComponent(window.location.search.slice(1));
+const itemsWrapper = document.querySelector('#items-wrapper');
+
+let searchItemsFrag = document.createDocumentFragment();
+products.forEach((product)=>{
+    if(product.name.includes(searchedItem)){
+        let mainDiv = document.createElement('div');
+        mainDiv.classList = 'w-72 rounded overflow-hidden border border-gray-4';
+        mainDiv.insertAdjacentHTML('beforeend' , `
+            <img src="../images/products/pasta-sabzi.png" alt="image" class="w-full">
+                    <div class="flex flex-col p-4 items-center">
+                        <span class="font-estedad-bold text-xl">${product.name}</span>
+                        <div class="pt-2 pb-4 flex justify-between w-full">
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-center gap-x-1 text-gray-5 cursor-pointer">
+                                    <svg class=" w-4 h-4">
+                                        <use href="#heart"></use>
+                                    </svg>
+                                    <span class="font-estedad-bold text-2xs">افزودن به علاقمندی‌ها</span>
+                                </div>
+                                <div class="flex items-center gap-x-1">
+                                    <img src="../images/Star.png" alt="image" class="w-4 h-4">
+                                    <span class="text-sm font-estedad-medium">${convertToPersianNumbers(product.score)}</span>
+                                    <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
+                                </div>
+                            </div>
+                            ${!product.hasDiscount ? `<div class="text-gray-8 font-estedad-medium"><span>${convertToPersianNumbers(product.price)}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${convertToPersianNumbers(product.price)}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${convertToPersianNumbers(product.discountPercent)}</span></div><div class="text-base text-gray-8"><span>${convertToPersianNumbers(product.price - product.discountAmount)}</span><span>تومان</span></div></div>` }
+                        </div>
+                        <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
+            `);
+        searchItemsFrag.append(mainDiv);
+    }
+})
+itemsWrapper.append(searchItemsFrag)
