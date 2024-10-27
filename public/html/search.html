@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarkhine</title>
-    
+    <title>food search</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/app.css">
-    <script src="../scripts/app.js" defer></script>
+    <script src="../scripts/search.js" defer></script>
 </head>
 <body class="relative font-estedad-regular overflow-x-hidden">
+
     <!-- all app icons -->
     <svg class="hidden">
 
@@ -107,7 +107,7 @@
     </svg>
 
     <!-- header -->
-    <header class="hidden lg:flex justify-between items-center px-2 lg:px-4 xl:px-10 2xl:px-28 h-28">
+    <header class="hidden lg:flex justify-between items-center px-2 lg:px-4 xl:px-10 2xl:px-28 h-28 shadow-md">
         <!-- logo -->
         <div class="flex items-center gap-x-2">
             <img class="w-8 lg:w-12" src="../images/Logo.png" alt="">
@@ -121,12 +121,7 @@
         </nav>
         <!-- search & cart & profile -->
         <div class="flex items-center gap-x-2 text-primary child:p-1 lg:child:p-2 child:bg-tint-1 child:rounded ">  
-            <!-- search -->
-            <div id="search-icon" class="cursor-pointer">
-                <svg class="w-4 h-4 lg:w-6 lg:h-6">
-                    <use href="#search"></use>
-                </svg>
-            </div>
+        
             <!-- cart -->
             <a href="#">
                 <svg class="w-4 h-4 lg:w-6 lg:h-6">
@@ -223,230 +218,90 @@
         </div>
     </div>
 
-    <!-- main page -->
+    <!-- main content -->
     <main>
-        <!--slider section -->
-        <section id="sliderSection" class="relative">
-            
-            <div id="slider" class="w-full h-44 lg:h-[336px] bg-black overflow-hidden relative">
+        <div class="my-16">
+            <div class="flex justify-center items-center">
+                <span class="text-gray-8 font-estedad-bold text-2xl">نتایج جستجو برای:</span>
+                <span class="text-primary font-estedad-bold text-2xl">پاستا</span>
             </div>
-            <!-- next and prev buttons -->
-            <button class="hidden lg:inline-block prev absolute left-9 top-36 text-white">
-                <svg class="w-8 h-8 rotate-90">
-                    <use href="#arrow-down"></use>
-                </svg>
-            </button>
-            <button class="hidden lg:inline-block next absolute right-9 top-36 text-white">
-                <svg class="w-8 h-8 -rotate-90">
-                    <use href="#arrow-down"></use>
-                </svg>
-            </button>
-            <!-- dots section -->
-            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 lg:w-40">
-                <img src="../images/slider-rectangle.png" alt="">
-                <!-- dots -->
-                <div class="dots-container flex items-center justify-center w-full h-full gap-x-1 absolute left-0 top-0">
-                </div>
-            </div>
-
-        </section>
-
-        <!-- restaurant menu section -->
-        <section id="restaurantMenu">
-            <!-- mobile search box -->
-            <div class="lg:hidden flex justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-sm">
-                <input class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
-                <svg class="w-4 h-4">
-                    <use href="#search"></use>
-                </svg>
-            </div>
-            <!-- restaurant menu container -->
-            <div class="w-full h-[466px] relative">
-                <span class="absolute left-1/2 -translate-x-1/2 top-12 font-estedad-bold text-2xl">منوی رستوران</span>
-                <div class="flex justify-evenly xl:justify-between flex-wrap pt-40 md:pt-60 px-5 md:px-28 gap-y-28 text-xs xl:text-xl child:relative child:w-[152px] child:h-20  child:mx-2  xl:child:min-w-52 xl:child:h-32 xl:child:mx-0 2xl:child:min-w-72 2xl:child:h-40 child:rounded-xl child:bg-primary child:shadow-xl">
+            <!-- search input -->
+            <div class="flex justify-center items-center mt-6 mb-12">
+                <div class="flex w-[392px] justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-lg">
+                    <input class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
                     <a href="#">
-                        <img src="../images/resturant-menu-mainDishes.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">غذای اصلی</span>
-                    </a>
-                    <a href="#">
-                        <img src="../images/resturant-menu-appetizer.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">پیش غذا</span>
-                    </a>
-                    <a href="#">
-                        <img src="../images/resturant-menu-dessert.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">دسر</span>
-                    </a>
-                    <a href="#">
-                        <img src="../images/resturant-menu-drinks.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute xl:-top-10 2xl:top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">نوشیدنی</span>
+                        <svg class="w-4 h-4">
+                            <use href="#search"></use>  
+                        </svg>
                     </a>
                 </div>
             </div>
-        </section>
-
-        <!-- about section -->
-        <section id="about-section">
-            <div class="text-white flex flex-col lg:flex-row justify-between px-10 xl:px-28">
-                <div class="flex flex-col gap-y-6 py-12">
-                    <span class="font-estedad-bold text-base lg:text-2xl">رستوران‌های زنجیره‌ای ترخینه</span>
-                    <p class="w-80  lg:w-[500px] xl:w-[600px] font-estedad-bold lg:font-estedad-regular text-2xs lg:text-xl">مهمان‌نوازی یکی از مهم‌ترین مشخصه‌های ایرانیان است و باعث افتخار ماست که بیش از 20 سال است خدمت‌گزار مردم شریف ایران هستیم. ما در رستوران‌های زنجیره‌ای ترخینه همواره تلاش کردیم که در محیطی اصیل بر پایه معماری و طراحی مدرن در کنار طبیعتی دلنواز، غذایی سالم و درخور شان شما عزیزان ارائه دهیم.</p>
-                    <div class="flex items-center justify-end">
-                        <a href="#" class="flex items-center justify-center gap-x-2 w-40 lg:w-44 h-8 lg:h-10  rounded border border-white">
-                            <span class="text-sm lg:text-lg">اطلاعات بیشتر</span>
-                            <svg class="w-4 h-4 lg:w-6 lg:h-6 rotate-90">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="grid grid-rows-2 grid-cols-2 text-lg py-14 gap-y-4 lg:gap-y-0 gap-x-6 child:flex child:flex-col child:items-center child:justify-center child:lg:text-lg child:text-sm">
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#user"></use>
-                        </svg>
-                        پرسنلی مجرب و حرفه‌ای
-                    </span>
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#diagram"></use>
-                        </svg>
-                        کیفیت بالای غذاها 
-                    </span>
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#home-wifi"></use>
-                        </svg>
-                        محیطی دلنشین و آرام 
-                    </span>
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#menu-board"></use>
-                        </svg>
-                        منوی متنوع 
-                    </span>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- branches section -->
-        <section id="branches-section" class="mb-12">
-            <!-- title -->
-            <div class="flex justify-center items-center pt-12 pb-6 font-estedad-bold text-2xl text-gray-8">
-                <span>ترخینه گردی</span>
-            </div>
-            <!--desktop carts -->
-            <div class="hidden lg:flex flex-col lg:flex-row justify-center gap-x-6 child:w-80 child:h-20 lg:child:w-72 lg:child:h-[344px] child:border child:border-gray-4 child:rounded-lg">
-                <div class="group">
-                    <div class="group-hover:shadow-md lg:h-full lg:flex-col flex-row">
-                        <img src="../images/branch-1.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col lg:pt-2 lg:px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه اکباتان</span>
-                                <p class="text-gray-7 text-sm">شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class=" hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
+            <!-- items -->
+            <div class="flex justify-center gap-x-6">
+                <!-- item -->
+                <div class="w-72 rounded overflow-hidden border border-gray-4">
+                    <img src="../images/products/pasta-sabzi.png" alt="image" class="w-full">
+                    <div class="flex flex-col p-4 items-center">
+                        <span class="font-estedad-bold text-xl">پاستا سبزیجات</span>
+                        <div class="pt-2 pb-4 flex justify-between w-full">
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-center gap-x-1 text-gray-5 cursor-pointer">
+                                    <svg class=" w-4 h-4">
+                                        <use href="#heart"></use>
                                     </svg>
-                                </a>
+                                    <span class="font-estedad-bold text-2xs">افزودن به علاقمندی‌ها</span>
+                                </div>
+                                <div class="flex items-center gap-x-1">
+                                    <img src="../images/Star.png" alt="image" class="w-4 h-4">
+                                    <span class="text-sm font-estedad-medium">۵</span>
+                                    <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs">
+                                    <span class=" text-gray-5 line-through">۱۸۵٬۰۰۰</span>
+                                    <span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%۱۵</span>
+                                </div>
+                                <div class="text-base text-gray-8">
+                                    <span>۱۶۵٬۰۰۰</span>
+                                    <span>تومان</span>
+                                </div>
                             </div>
                         </div>
+                        <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
                     </div>
                 </div>
-                <div class="group">
-                    <div class="group-hover:shadow-md h-full lg:flex-col flex-row">
-                        <img src="../images/branch-2.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col pt-2 px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه چالوس</span>
-                                <p class="text-gray-7 text-sm">چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
+                <!-- item -->
+                <div class="w-72 rounded overflow-hidden border border-gray-4">
+                    <img src="../images/products/pasta-sabzi.png" alt="image" class="w-full">
+                    <div class="flex flex-col p-4 items-center">
+                        <span class="font-estedad-bold text-xl">پاستا سبزیجات</span>
+                        <div class="pt-2 pb-4 flex justify-between w-full">
+                            <div class="flex flex-col space-y-1">
+                                <div class="flex items-center gap-x-1 text-gray-5 cursor-pointer">
+                                    <svg class=" w-4 h-4">
+                                        <use href="#heart"></use>
                                     </svg>
-                                </a>
+                                    <span class="font-estedad-bold text-2xs">افزودن به علاقمندی‌ها</span>
+                                </div>
+                                <div class="flex items-center gap-x-1">
+                                    <img src="../images/Star.png" alt="image" class="w-4 h-4">
+                                    <span class="text-sm font-estedad-medium">۵</span>
+                                    <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
+                                </div>
                             </div>
+                            <divn class="text-gray-8 font-estedad-medium">
+                                <span>۱۸۵٬۰۰۰</span>   
+                                <span>تومان</span>  
+                            </divn>
                         </div>
-                    </div>
-                </div>
-                <div class="group">
-                    <div class="group-hover:shadow-md h-full lg:flex-col flex-row">
-                        <img src="../images/branch-1.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col pt-2 px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه اقدسیه</span>
-                                <p class="text-gray-7 text-sm">خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="group">
-                    <div class="group-hover:shadow-md h-full lg:flex-col flex-row">
-                        <img src="../images/branch-2.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col pt-2 px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه ونک</span>
-                                <p class="text-gray-7 text-sm">میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                        <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
                     </div>
                 </div>
             </div>
-            <!-- mobile carts -->
-            <div class="flex lg:hidden flex-col px-5 gap-y-3 child:rounded-md child:flex child:border child:border-gray-4">
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-1.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه اکباتان</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم</p>
-                    </div>
-                </a>
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-2.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه چالوس</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی</p>
-                    </div>
-                </a>
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-1.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه اقدسیه</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸</p>
-                    </div>
-                </a>
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-2.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه ونک</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶</p>
-                    </div>
-                </a>
-            </div>
-        </section>
+        </div>
     </main>
+    
     <!-- footer -->
     <footer id="footer" class="relative">
         <div class="flex justify-between w-full h-80 px-28 py-8 text-gray-4">
@@ -507,26 +362,6 @@
         </div>
     </footer>
 
-    <!-- desktop search box -->
-    <div id="search-box" class="hidden z-20 absolute top-[50vh] -translate-y-1/2 left-1/2 -translate-x-1/2 w-[600px] bg-white rounded-lg overflow-hidden">
-        <div class="relative bg-gray-3">
-            <span class="flex justify-center items-center py-6">جستجو</span>
-            <svg id="search-box-close" class="absolute top-1/2 left-6 -translate-y-1/2 w-10 h-10 text-gray-7 rotate-45">
-                <use href="#close"></use>
-            </svg>
-        </div>
-        <div class="flex flex-col items-center py-10 px-24">
-            <p>لطفا متن خود را تایپ و سپس دکمه Enter را بزنید.</p>
-            <div class="flex  w-full justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-lg">
-                <input class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
-                <a href="search.html">
-                    <svg class="w-4 h-4">
-                        <use href="#search"></use>
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </div>
     <!-- overlay -->
     <div id="mobile-menu-box-blur" class="hidden top-0 left-0 w-[100vw] h-[100vh] bg-black/50 backdrop-blur-sm"></div>
 </body>

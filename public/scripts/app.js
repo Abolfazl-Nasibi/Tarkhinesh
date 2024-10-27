@@ -60,7 +60,8 @@ const menuLinks = [
         hasSub : false,
         iconName : 'home',
         hasMobileMenu : true,
-        active : true
+        active : true,
+        link : 'index.html'
     },
     {
         id : 2,
@@ -68,7 +69,8 @@ const menuLinks = [
         hasSub : true,
         iconName : 'home-hashtag',
         hasMobileMenu : true,
-        active : false
+        active : false,
+        link : '#'
     },
     {
         id : 3,
@@ -76,7 +78,8 @@ const menuLinks = [
         hasSub : true,
         iconName : 'menu-board',
         hasMobileMenu : true,
-        active : false
+        active : false,
+        link : '#'
     },
     {
         id : 4,
@@ -84,7 +87,8 @@ const menuLinks = [
         hasSub : false,
         iconName : '',
         hasMobileMenu : false,
-        active : false
+        active : false,
+        link : '#'
     },
     {
         id : 5,
@@ -92,7 +96,8 @@ const menuLinks = [
         hasSub : false,
         iconName : 'user-2',
         hasMobileMenu : true,
-        active : false
+        active : false,
+        link : '#'
     },
     {
         id : 6,
@@ -100,7 +105,8 @@ const menuLinks = [
         hasSub : false,
         iconName : 'call',
         hasMobileMenu : true,
-        active : false
+        active : false,
+        link : '#'
     },
 ];
 
@@ -157,7 +163,7 @@ function createMenuItem(obj,isMobile = false){
     menuLiPlaceHolder = document.createElement('li');
     menuActiveClass = obj.active ? (isMobile ? 'text-xs font-estedad-regular text-primary' : 'font-estedad-bold text-primary border-b border-primary') : '';
     if(!obj.hasSub){
-        menuHtmlPlaceHolder = `<a href="#" class="${menuActiveClass}">
+        menuHtmlPlaceHolder = `<a href="${obj.link}" class="${menuActiveClass}">
                                     ${isMobile&&obj.hasMobileMenu ? `<svg class="w-4 h-4"><use href="#${obj.iconName}"></use></svg>` :``}
                                     ${obj.content}
                                 </a>`;
@@ -356,4 +362,7 @@ const textCounter = document.querySelector('#textarea-length-counter');
 const feedBackArea = document.querySelector('#feedback-textarea');
 feedBackArea.addEventListener('input' , ()=>{
     textCounter.innerHTML = feedBackArea.value.length + '/150'
-})
+});
+
+
+// search page
