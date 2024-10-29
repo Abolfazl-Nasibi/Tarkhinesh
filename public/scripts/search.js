@@ -213,7 +213,7 @@ const products = [
     // Appetizers
     { id: 13, name: "فلافل", src: "../images/products/falafel.png", category: "Appetizer", price: "90000", count: 1, hasDiscount: true, discountAmount: 10000, discountPercent: 11, score: 3 },
     { id: 14, name: "باقالا قاتوق", src: "../images/products/baghala.png", category: "Appetizer", price: "100000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 20, score: 4 },
-    { id: 15, name: "میرزا قاسمی", src: "../images/products/mirza-ghasemi.png", category: "Appetizer", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    { id: 15, name: "میرزا قاسمی", src: "../images/products/mirza-qhasemi.png", category: "Appetizer", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
     { id: 16, name: "کشک بادمجان", src: "../images/products/kashk-bademjan.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 13, score: 5 },
     { id: 17, name: "کوکو سبزی", src: "../images/products/koko-sabzi.png", category: "Appetizer", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
     { id: 18, name: "دلمه برگ مو", src: "../images/products/dolme-barg.png", category: "Appetizer", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
@@ -235,38 +235,67 @@ const products = [
     ];
 
 // searching function
+function searchProduct(wrapper,array,searchedItem){
+    foundedItems = [];
+    wrapper.innerHTML = '';
+    searchPageTitle.innerHTML = searchedItem;
+    if(searchedItem.trim()===''){
+        searchPageTitle.innerHTML = 'موردی با این مشخصات پیدا نکردیم!';
+        return;
+    }
+    array.forEach((product)=>{
+        if(product.name.includes(searchedItem)){
+            let mainDiv = document.createElement('div');
+            mainDiv.classList = 'w-72 rounded overflow-hidden border border-gray-4';
+            mainDiv.insertAdjacentHTML('beforeend' , `
+                <img src="${product.src}" alt="image" class="h-60 object-cover">
+                        <div class="flex flex-col p-4 items-center">
+                            <span class="font-estedad-bold text-xl">${product.name}</span>
+                            <div class="pt-2 pb-4 flex justify-between w-full">
+                                <div class="flex flex-col space-y-1">
+                                    <div class="flex items-center gap-x-1 text-gray-5 cursor-pointer">
+                                        <svg class=" w-4 h-4">
+                                            <use href="#heart"></use>
+                                        </svg>
+                                        <span class="font-estedad-bold text-2xs">افزودن به علاقمندی‌ها</span>
+                                    </div>
+                                    <div class="flex items-center gap-x-1">
+                                        <img src="../images/Star.png" alt="image" class="w-4 h-4">
+                                        <span class="text-sm font-estedad-medium">${convertToPersianNumbers(product.score)}</span>
+                                        <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
+                                    </div>
+                                </div>
+                                ${!product.hasDiscount ? `<div class="text-gray-8 font-estedad-medium"><span>${convertToPersianNumbers(product.price)}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${convertToPersianNumbers(product.price)}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${convertToPersianNumbers(product.discountPercent)}</span></div><div class="text-base text-gray-8"><span>${convertToPersianNumbers(product.price - product.discountAmount)}</span><span>تومان</span></div></div>` }
+                            </div>
+                            <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
+                `);
+            wrapper.append(mainDiv);
+            foundedItems.push(product);
+        }
+    })
+    if(foundedItems.length < 1){
+    }
+}
 
 const searchedItem = decodeURIComponent(window.location.search.slice(1));
 const itemsWrapper = document.querySelector('#items-wrapper');
-
 let searchItemsFrag = document.createDocumentFragment();
-products.forEach((product)=>{
-    if(product.name.includes(searchedItem)){
-        let mainDiv = document.createElement('div');
-        mainDiv.classList = 'w-72 rounded overflow-hidden border border-gray-4';
-        mainDiv.insertAdjacentHTML('beforeend' , `
-            <img src="../images/products/pasta-sabzi.png" alt="image" class="w-full">
-                    <div class="flex flex-col p-4 items-center">
-                        <span class="font-estedad-bold text-xl">${product.name}</span>
-                        <div class="pt-2 pb-4 flex justify-between w-full">
-                            <div class="flex flex-col space-y-1">
-                                <div class="flex items-center gap-x-1 text-gray-5 cursor-pointer">
-                                    <svg class=" w-4 h-4">
-                                        <use href="#heart"></use>
-                                    </svg>
-                                    <span class="font-estedad-bold text-2xs">افزودن به علاقمندی‌ها</span>
-                                </div>
-                                <div class="flex items-center gap-x-1">
-                                    <img src="../images/Star.png" alt="image" class="w-4 h-4">
-                                    <span class="text-sm font-estedad-medium">${convertToPersianNumbers(product.score)}</span>
-                                    <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
-                                </div>
-                            </div>
-                            ${!product.hasDiscount ? `<div class="text-gray-8 font-estedad-medium"><span>${convertToPersianNumbers(product.price)}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${convertToPersianNumbers(product.price)}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${convertToPersianNumbers(product.discountPercent)}</span></div><div class="text-base text-gray-8"><span>${convertToPersianNumbers(product.price - product.discountAmount)}</span><span>تومان</span></div></div>` }
-                        </div>
-                        <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
-            `);
-        searchItemsFrag.append(mainDiv);
-    }
+const searchPageTitle = document.querySelector('#search-page-header');
+
+let foundedItems = [];
+
+searchPageTitle.innerHTML = searchedItem;
+
+// load searched items
+searchProduct(searchItemsFrag,products,searchedItem);
+itemsWrapper.append(searchItemsFrag);
+
+// load searched items when input changes
+const searchInput = document.querySelector('#search-input');
+searchInput.addEventListener('input',()=>{
+    let currentSearchedItem = searchInput.value;
+    searchProduct(searchItemsFrag,products,currentSearchedItem);
+    itemsWrapper.innerHTML = '';
+    itemsWrapper.append(searchItemsFrag);
 })
-itemsWrapper.append(searchItemsFrag)
+
