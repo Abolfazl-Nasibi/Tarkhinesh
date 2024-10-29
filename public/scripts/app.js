@@ -368,12 +368,25 @@ feedBackArea.addEventListener('input' , ()=>{
 // search page----------------------------------------
 const searchInput =  document.querySelector('#search-input');
 const searchBtn = document.querySelector('#search-button');
-// adding searched item name to url
+// adding searched item name to url desktop
 searchBtn.addEventListener('click' , ()=>{
     window.location.href = `http://127.0.0.1:5501/public/html/search.html?${searchInput.value}`;
 })
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         window.location.href = `http://127.0.0.1:5501/public/html/search.html?${searchInput.value}`;
+    }
+});
+
+// adding searched itme name to url mobile
+const mobileSearchInput = document.querySelector('#mobile-search-input');
+const searchBtnMobile = document.querySelector('#mobile-search-button');
+
+searchBtnMobile.addEventListener('click' , ()=>{
+    window.location.href = `http://127.0.0.1:5501/public/html/search.html?${mobileSearchInput.value}`;
+})
+mobileSearchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        window.location.href = `http://127.0.0.1:5501/public/html/search.html?${mobileSearchInput.value}`;
     }
 });

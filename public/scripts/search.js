@@ -241,16 +241,22 @@ function searchProduct(wrapper,array,searchedItem){
     searchPageTitle.innerHTML = searchedItem;
     if(searchedItem.trim()===''){
         searchPageTitle.innerHTML = 'موردی با این مشخصات پیدا نکردیم!';
+        itemsWrapper.classList.add('hidden');
+        notFoundImage.classList.remove('hidden')
         return;
+    }else{
+        itemsWrapper.classList.remove('hidden');
+        notFoundImage.classList.add('hidden')
     }
     array.forEach((product)=>{
         if(product.name.includes(searchedItem)){
             let mainDiv = document.createElement('div');
-            mainDiv.classList = 'w-72 rounded overflow-hidden border border-gray-4';
+            mainDiv.classList = 'w-40 lg:w-72 rounded overflow-hidden border border-gray-4';
             mainDiv.insertAdjacentHTML('beforeend' , `
-                <img src="${product.src}" alt="image" class="h-60 object-cover">
-                        <div class="flex flex-col p-4 items-center">
-                            <span class="font-estedad-bold text-xl">${product.name}</span>
+                <img src="${product.src}" alt="image" class="h-40 lg:h-60 object-cover">
+                        <div class="flex flex-col justify-between px-2 pt-4
+                         lg:p-4 items-center">
+                            <span class="font-estedad-bold text-lg lg:pb-2 lg:text-xl">${product.name}</span>
                             <div class="pt-2 pb-4 flex justify-between w-full">
                                 <div class="flex flex-col space-y-1">
                                     <div class="flex items-center gap-x-1 text-gray-5 cursor-pointer">
@@ -265,7 +271,7 @@ function searchProduct(wrapper,array,searchedItem){
                                         <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
                                     </div>
                                 </div>
-                                ${!product.hasDiscount ? `<div class="text-gray-8 font-estedad-medium"><span>${convertToPersianNumbers(product.price)}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${convertToPersianNumbers(product.price)}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${convertToPersianNumbers(product.discountPercent)}</span></div><div class="text-base text-gray-8"><span>${convertToPersianNumbers(product.price - product.discountAmount)}</span><span>تومان</span></div></div>` }
+                                ${!product.hasDiscount ? `<div class="flex justify-end text-gray-8 font-estedad-medium"><span>${convertToPersianNumbers(product.price)}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${convertToPersianNumbers(product.price)}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${convertToPersianNumbers(product.discountPercent)}</span></div><div class="text-base text-gray-8"><span>${convertToPersianNumbers(product.price - product.discountAmount)}</span><span>تومان</span></div></div>` }
                             </div>
                             <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
                 `);
@@ -274,6 +280,13 @@ function searchProduct(wrapper,array,searchedItem){
         }
     })
     if(foundedItems.length < 1){
+        searchPageTitle.innerHTML = 'موردی با این مشخصات پیدا نکردیم!';
+        itemsWrapper.classList.add('hidden');
+        notFoundImage.classList.remove('hidden')
+        return;
+    }else{
+        itemsWrapper.classList.remove('hidden');
+        notFoundImage.classList.add('hidden')
     }
 }
 
@@ -281,6 +294,7 @@ const searchedItem = decodeURIComponent(window.location.search.slice(1));
 const itemsWrapper = document.querySelector('#items-wrapper');
 let searchItemsFrag = document.createDocumentFragment();
 const searchPageTitle = document.querySelector('#search-page-header');
+const notFoundImage = document.querySelector('#not-found')
 
 let foundedItems = [];
 

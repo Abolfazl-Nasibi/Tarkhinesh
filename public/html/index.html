@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../styles/app.css">
     <script src="../scripts/app.js" defer></script>
 </head>
-<body class="relative font-estedad-regular overflow-x-hidden">
+<body class="relative font-estedad-regular overflow-x-hidden ">
     <!-- all app icons -->
     <svg class="hidden">
 
@@ -255,13 +255,13 @@
         <section id="restaurantMenu">
             <!-- mobile search box -->
             <div class="lg:hidden flex justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-sm">
-                <input class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
-                <svg class="w-4 h-4">
+                <input id="mobile-search-input" class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
+                <svg id="mobile-search-button" class="w-4 h-4">
                     <use href="#search"></use>
                 </svg>
             </div>
             <!-- restaurant menu container -->
-            <div class="w-full h-[466px] relative">
+            <div class="w-full py-16 relative">
                 <span class="absolute left-1/2 -translate-x-1/2 top-12 font-estedad-bold text-2xl">منوی رستوران</span>
                 <div class="flex justify-evenly xl:justify-between flex-wrap pt-40 md:pt-60 px-5 md:px-28 gap-y-28 text-xs xl:text-xl child:relative child:w-[152px] child:h-20  child:mx-2  xl:child:min-w-52 xl:child:h-32 xl:child:mx-0 2xl:child:min-w-72 2xl:child:h-40 child:rounded-xl child:bg-primary child:shadow-xl">
                     <a href="#">
@@ -332,128 +332,97 @@
         <!-- branches section -->
         <section id="branches-section" class="mb-12">
             <!-- title -->
-            <div class="flex justify-center items-center pt-12 pb-6 font-estedad-bold text-2xl text-gray-8">
+            <div class="flex justify-center items-center pt-12 pb-8 font-estedad-bold text-2xl text-gray-8">
                 <span>ترخینه گردی</span>
             </div>
             <!--desktop carts -->
-            <div class="hidden lg:flex flex-col lg:flex-row justify-center gap-x-6 child:w-80 child:h-20 lg:child:w-72 lg:child:h-[344px] child:border child:border-gray-4 child:rounded-lg">
-                <div class="group">
-                    <div class="group-hover:shadow-md lg:h-full lg:flex-col flex-row">
-                        <img src="../images/branch-1.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col lg:pt-2 lg:px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه اکباتان</span>
-                                <p class="text-gray-7 text-sm">شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class=" hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
-                                    </svg>
-                                </a>
-                            </div>
+            <div class="flex flex-wrap justify-center px-5 lg:px-0 gap-6 child:w-72">
+                <!-- branch cart -->
+                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
+                    <!-- image -->
+                    <img src="../images/branch-1.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
+                    <!-- info -->
+                    <div class="flex flex-col items-center justify-between py-4">
+                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
+                            <span class="text-sm lg:text-xl text-gray-8">شعبه اکباتان</span>
+                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم</p>
                         </div>
+                        <!-- branch page button -->
+                        <a href="#" class="hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
+                            صفحه شعبه
+                            <svg class=" w-4 h-4 rotate-90">
+                                <use href="#arrow-down"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="group">
-                    <div class="group-hover:shadow-md h-full lg:flex-col flex-row">
-                        <img src="../images/branch-2.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col pt-2 px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه چالوس</span>
-                                <p class="text-gray-7 text-sm">چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
-                                    </svg>
-                                </a>
-                            </div>
+                <!-- branch cart -->
+                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
+                    <!-- image -->
+                    <img src="../images/branch-2.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
+                    <!-- info -->
+                    <div class="flex flex-col items-center justify-between py-4">
+                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
+                            <span class="text-sm lg:text-xl text-gray-8">شعبه چالوس</span>
+                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی</p>
                         </div>
+                        <!-- branch page button -->
+                        <a href="#" class="hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
+                            صفحه شعبه
+                            <svg class=" w-4 h-4 rotate-90">
+                                <use href="#arrow-down"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="group">
-                    <div class="group-hover:shadow-md h-full lg:flex-col flex-row">
-                        <img src="../images/branch-1.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col pt-2 px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه اقدسیه</span>
-                                <p class="text-gray-7 text-sm">خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
-                                    </svg>
-                                </a>
-                            </div>
+                <!-- branch cart -->
+                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
+                    <!-- image -->
+                    <img src="../images/branch-1.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
+                    <!-- info -->
+                    <div class="flex flex-col items-center justify-between py-4">
+                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
+                            <span class="text-sm lg:text-xl text-gray-8">شعبه اقدسیه</span>
+                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸</p>
                         </div>
+                        <!-- branch page button -->
+                        <a href="#" class="hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
+                            صفحه شعبه
+                            <svg class=" w-4 h-4 rotate-90">
+                                <use href="#arrow-down"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="group">
-                    <div class="group-hover:shadow-md h-full lg:flex-col flex-row">
-                        <img src="../images/branch-2.png" alt="image" class="lg:group-hover:h-48 lg:group-hover:brightness-50 w-36 lg:w-full object-cover transition-all">
-                        <div>
-                            <div class=" flex flex-col pt-2 px-1 space-y-1 group-hover:space-y-0 justify-center items-center">
-                                <span class="font-estedad-bold text-xl text-gray-8">شعبه ونک</span>
-                                <p class="text-gray-7 text-sm">میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶</p>
-                            </div>
-                            <div class="hidden group-hover:flex justify-center items-end">
-                                <a href="#" class="hidden group-hover:flex justify-center items-center mt-2 w-32 h-8 border border-shade-3 rounded">
-                                    صفحه شعبه
-                                    <svg class="w-4 h-4 rotate-90">
-                                        <use href="#arrow-down "></use>
-                                    </svg>
-                                </a>
-                            </div>
+                <!-- branch cart -->
+                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
+                    <!-- image -->
+                    <img src="../images/branch-2.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
+                    <!-- info -->
+                    <div class="flex flex-col items-center justify-between py-4">
+                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
+                            <span class="text-sm lg:text-xl text-gray-8">شعبه ونک</span>
+                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶</p>
                         </div>
+                        <!-- branch page button -->
+                        <a href="#" class="hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
+                            صفحه شعبه
+                            <svg class=" w-4 h-4 rotate-90">
+                                <use href="#arrow-down"></use>
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <!-- mobile carts -->
-            <div class="flex lg:hidden flex-col px-5 gap-y-3 child:rounded-md child:flex child:border child:border-gray-4">
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-1.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه اکباتان</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم</p>
-                    </div>
-                </a>
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-2.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه چالوس</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی</p>
-                    </div>
-                </a>
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-1.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه اقدسیه</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸</p>
-                    </div>
-                </a>
-                <a href="#" class="hover:border-primary">
-                    <img src="../images/branch-2.png" alt="image" class="w-36">
-                    <div class="flex flex-col justify-center items-center w-full space-y-1">
-                        <span class="font-estedad-medium text-sm">شعبه ونک</span>
-                        <p class="font-estedad-bold text-2xs text-gray-7">میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶</p>
-                    </div>
-                </a>
-            </div>
+            </div>           
         </section>
     </main>
     <!-- footer -->
     <footer id="footer" class="relative">
-        <div class="flex justify-between w-full h-80 px-28 py-8 text-gray-4">
+        <div class="flex justify-center lg:justify-between w-full h-80 px-28 py-8 gap-x-20 text-gray-4">
             <!-- easy access links -->
-            <div class="flex flex-col font-estedad-bold gap-y-4">
-                <span class="text-xl text-white">دسترسی آسان</span>
-                <div class="flex flex-col items-center text-sm gap-y-4">
+            <div class="flex flex-col items-center font-estedad-bold gap-y-4">
+                <span class="text-xs lg:text-xl text-white">دسترسی آسان</span>
+                <div class="flex flex-col items-center text-2xs lg:text-sm gap-y-4">
                     <a href="#">پرسش‌های متداول</a>
                     <a href="#">قوانین ترخینه</a>
                     <a href="#">حریم خصوصی</a>
@@ -478,8 +447,8 @@
             </div>
             <!-- branches -->
             <div class="flex flex-col font-estedad-bold gap-y-4">
-                <span class="text-xl text-white">شعبه‌های ترخینه</span>
-                <div class="flex flex-col items-center text-sm gap-y-4">
+                <span class="text-xs lg:text-xl text-white">شعبه‌های ترخینه</span>
+                <div class="flex flex-col items-center text-2xs lg:text-sm gap-y-4">
                     <a href="#">شعبه اکباتان</a>
                     <a href="#">شعبه چالوس</a>
                     <a href="#">شعبه اقدسیه</a>
