@@ -194,6 +194,7 @@ function createMenuItem(obj,isMobile = false){
     }
 }
 
+
 // products items definition(product list) -------------------------------------------------------------------------------------------------------
 const products = [
     // Main Dishes
