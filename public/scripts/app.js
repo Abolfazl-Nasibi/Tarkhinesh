@@ -61,7 +61,8 @@ const menuLinks = [
         iconName : 'home',
         hasMobileMenu : true,
         active : true,
-        link : 'index.html'
+        link : 'index.html',
+        specialId : ''
     },
     {
         id : 2,
@@ -70,7 +71,8 @@ const menuLinks = [
         iconName : 'home-hashtag',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : 'branches'
     },
     {
         id : 3,
@@ -79,7 +81,8 @@ const menuLinks = [
         iconName : 'menu-board',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 4,
@@ -88,7 +91,8 @@ const menuLinks = [
         iconName : '',
         hasMobileMenu : false,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 5,
@@ -97,7 +101,8 @@ const menuLinks = [
         iconName : 'user-2',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 6,
@@ -106,7 +111,8 @@ const menuLinks = [
         iconName : 'call',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
 ];
 
@@ -161,6 +167,7 @@ mobileMenuWrapper.append(mobileMenuFragment);
 // function to create and append menu items
 function createMenuItem(obj,isMobile = false){
     menuLiPlaceHolder = document.createElement('li');
+    menuLiPlaceHolder.id = obj.specialId;
     menuActiveClass = obj.active ? (isMobile ? 'text-xs font-estedad-regular text-primary' : 'font-estedad-bold text-primary border-b border-primary') : '';
     if(!obj.hasSub){
         menuHtmlPlaceHolder = `<a href="${obj.link}" class="${menuActiveClass}">
@@ -392,3 +399,6 @@ mobileSearchInput.addEventListener('keydown', (event) => {
 });
 
 // choose branche
+const branchesMenuLink = document.querySelector('#branches');
+const closeBranchesBox = document.querySelector('#close-branches-menu');
+console.log(branchesMenuLink);
