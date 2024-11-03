@@ -61,7 +61,8 @@ const menuLinks = [
         iconName : 'home',
         hasMobileMenu : true,
         active : true,
-        link : 'index.html'
+        link : 'index.html',
+        specialId : ''
     },
     {
         id : 2,
@@ -70,7 +71,8 @@ const menuLinks = [
         iconName : 'home-hashtag',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : 'branches'
     },
     {
         id : 3,
@@ -79,7 +81,8 @@ const menuLinks = [
         iconName : 'menu-board',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 4,
@@ -88,7 +91,8 @@ const menuLinks = [
         iconName : '',
         hasMobileMenu : false,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 5,
@@ -97,7 +101,8 @@ const menuLinks = [
         iconName : 'user-2',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 6,
@@ -106,16 +111,17 @@ const menuLinks = [
         iconName : 'call',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
 ];
 
 // Data for branches and foodMenu
 const branches = [
-    { id: 1, name: 'اکباتان' },
-    { id: 2, name: 'چالوس' },
-    { id: 3, name: 'اقدسیه' },
-    { id: 4, name: 'ونک' }
+    { id: 1, name: 'اکباتان' , htmlId : 'ekbatan' },
+    { id: 2, name: 'چالوس' , htmlId : 'chalus' },
+    { id: 3, name: 'اقدسیه' , htmlId : 'aghdasie' },
+    { id: 4, name: 'ونک' , htmlId : 'vanak' }
 ];
 
 const foodMenu = [
@@ -161,6 +167,7 @@ mobileMenuWrapper.append(mobileMenuFragment);
 // function to create and append menu items
 function createMenuItem(obj,isMobile = false){
     menuLiPlaceHolder = document.createElement('li');
+    menuLiPlaceHolder.id = obj.specialId;
     menuActiveClass = obj.active ? (isMobile ? 'text-xs font-estedad-regular text-primary' : 'font-estedad-bold text-primary border-b border-primary') : '';
     if(!obj.hasSub){
         menuHtmlPlaceHolder = `<a href="${obj.link}" class="${menuActiveClass}">
@@ -208,6 +215,8 @@ function createMenuItem(obj,isMobile = false){
     }
 }
 
+
+// main page slider--------------------------------------------------------------------------------------------------------------------
 // slider slides definition
 let sliderSlides = [
     {id : 1 , src : "../images/slider-slide1.png" , text : "تجربه غذای سالم و گیاهی به سبک ترخینه"},
@@ -311,6 +320,41 @@ function searchDot(){
         }
     })
 }
+
+// text area text counter
+const textCounter = document.querySelector('#textarea-length-counter');
+const feedBackArea = document.querySelector('#feedback-textarea');
+feedBackArea.addEventListener('input' , ()=>{
+    textCounter.innerHTML = feedBackArea.value.length + '/150'
+});
+
+// branches box -----------------------------------------------------------------------------------------------------
+// open and close branches box
+const branchesMenuLink = document.querySelector('#branches');
+const closeBranchesBox = document.querySelector('#close-branches-box');
+const branchesBox = document.querySelector('#branches-box')
+branchesMenuLink.addEventListener('click',(event)=>{
+    branchesBox.classList.remove('hidden');
+    branchesBox.classList.add('fixed');
+    mobileMenuBlur.classList.remove('hidden')
+    mobileMenuBlur.classList.add('fixed')
+})
+
+closeBranchesBox.addEventListener('click',(event)=>{
+    console.log('nigga');
+    branchesBox.classList.add('hidden');
+    branchesBox.classList.remove('fixed');
+    mobileMenuBlur.classList.add('hidden')
+    mobileMenuBlur.classList.remove('fixed')
+})
+
+// events for branche cart
+const branchesCarts = document.querySelectorAll('.branche-cart');
+branchesCarts.forEach((brancheCart)=>[
+    brancheCart.addEventListener('click',(event)=>{
+        window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${brancheCart.id}`
+    })
+])
 
 // products items definition(product list) -------------------------------------------------------------------------------------------------------
 const products = [

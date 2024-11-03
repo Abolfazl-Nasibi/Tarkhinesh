@@ -118,10 +118,10 @@ const menuLinks = [
 
 // Data for branches and foodMenu
 const branches = [
-    { id: 1, name: 'اکباتان' },
-    { id: 2, name: 'چالوس' },
-    { id: 3, name: 'اقدسیه' },
-    { id: 4, name: 'ونک' }
+    { id: 1, name: 'اکباتان' , htmlId : 'ekbatan' },
+    { id: 2, name: 'چالوس' , htmlId : 'chalus' },
+    { id: 3, name: 'اقدسیه' , htmlId : 'aghdasie' },
+    { id: 4, name: 'ونک' , htmlId : 'vanak' }
 ];
 
 const foodMenu = [
@@ -398,7 +398,30 @@ mobileSearchInput.addEventListener('keydown', (event) => {
     }
 });
 
-// choose branche
+// branches box -----------------------------------------------------------------------------------------------------
+// open and close branches box
 const branchesMenuLink = document.querySelector('#branches');
-const closeBranchesBox = document.querySelector('#close-branches-menu');
-console.log(branchesMenuLink);
+const closeBranchesBox = document.querySelector('#close-branches-box');
+const branchesBox = document.querySelector('#branches-box')
+branchesMenuLink.addEventListener('click',(event)=>{
+    branchesBox.classList.remove('hidden');
+    branchesBox.classList.add('fixed');
+    mobileMenuBlur.classList.remove('hidden')
+    mobileMenuBlur.classList.add('fixed')
+})
+
+closeBranchesBox.addEventListener('click',(event)=>{
+    console.log('nigga');
+    branchesBox.classList.add('hidden');
+    branchesBox.classList.remove('fixed');
+    mobileMenuBlur.classList.add('hidden')
+    mobileMenuBlur.classList.remove('fixed')
+})
+
+// events for branche cart
+const branchesCarts = document.querySelectorAll('.branche-cart');
+branchesCarts.forEach((brancheCart)=>[
+    brancheCart.addEventListener('click',(event)=>{
+        window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${brancheCart.id}`
+    })
+])
