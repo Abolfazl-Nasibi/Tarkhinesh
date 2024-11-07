@@ -69,4 +69,8 @@
         filter: brightness(25%); /* Apply brightness to background */
         z-index: -1; /* Ensure it stays behind the text */
     }
+
+    .swiper-slider {
+        width: 72rem;
+    }
 }

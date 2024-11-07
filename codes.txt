@@ -1,0 +1,35 @@
+swiper slider :
+    <div class="swiper-slide">
+        <div class=" w-40 lg:w-72 border border-gray-4 rounded-lg overflow-hidden">
+            <img src="../images/products/bademjan-shekampor.png" alt="product" class="h-64 object-cover">
+            <div class="p-4 flex flex-col items-center gap-y-4">
+                <span class="font-estedad-bold text-xl text-gray-8">دلمه</span>
+                <div class="flex w-full justify-between">
+                    <div class="flex flex-col items-start gap-y-1">
+                        <div class="flex items-center text-gray-5 font-estedad-bold text-2xs gap-x-1">
+                            <svg class="w-4 h-4">
+                                <use href="#heart"></use>
+                            </svg>
+                            <span>افزودن به علاقمندی‌ها</span>
+                        </div>
+                        <div class="flex items-center gap-x-1">
+                            <img src="../images/Star.png" alt="star" class="w-4 h-4">
+                            <span class="font-estedad-medium text-sm text-gray-8">5</span>
+                            <span class="font-estedad-bold text-2xs text-gray-5">(۵۲ امتیاز)</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-end gap-y-1">
+                        <div class="flex items-center gap-x-1  child:font-estedad-bold child:text-2xs ">
+                            <span class="line-through text-gray-5">۲۲۰٬۰۰۰</span>
+                            <span class="text-center w-8 bg-error-extraLight rounded-xl text-error">%۸</span>
+                        </div>
+                        <div class="flex items-center gap-x-1 font-estedad-medium text-base text-gray-8">
+                            <span>209,000</span>
+                            <span>تومان</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="flex justify-center items-center w-full h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
+            </div>
+        </div>
+    </div> 
