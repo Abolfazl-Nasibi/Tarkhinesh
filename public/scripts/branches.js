@@ -408,7 +408,6 @@ branchesMenuLink.addEventListener('click',(event)=>{
 })
 
 closeBranchesBox.addEventListener('click',(event)=>{
-    console.log('nigga');
     branchesBox.classList.add('hidden');
     branchesBox.classList.remove('fixed');
     mobileMenuBlur.classList.add('hidden')
@@ -501,7 +500,7 @@ function addFoodsToBranchWrapper(wrapper,branch,fragment){
                                     <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
                                 </div>
                             </div>
-                            ${!product.hasDiscount ? `<div class="flex justify-end text-gray-8 font-estedad-medium"><span>${product.price}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${product.price}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${product.discountPercent}</span></div><div class="flex font-estedad-medium text-base text-gray-8 gap-x-1"><span>${product.price - product.discountAmount}</span><span>تومان</span></div></div>` }
+                            ${!product.hasDiscount ? `<div class="flex justify-end text-gray-8 gap-x-1 font-estedad-medium"><span>${product.price}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${product.price}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${product.discountPercent}</span></div><div class="flex font-estedad-medium text-base text-gray-8 gap-x-1"><span>${product.price - product.discountAmount}</span><span>تومان</span></div></div>` }
                         </div>
                         <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
             `);
