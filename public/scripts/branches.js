@@ -118,7 +118,7 @@ const menuLinks = [
 
 // Data for branches and foodMenu
 const branches = [
-    { id: 1, name: 'اکباتان' , htmlId : 'ekbatan' ,
+    { id: 1, name: 'اکباتان' , class : "branchLink" ,  htmlId : 'ekbatan' ,
         products : [
             { id: 1, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Main Dish", price: "180000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 11, score: 5 },
             { id: 2, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Main Dish", price: "150000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 10, score: 4 },
@@ -133,7 +133,7 @@ const branches = [
             { id: 16, name: "کشک بادمجان", src: "../images/products/kashk-bademjan.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 13, score: 5 },
         ]
     },
-    { id: 2, name: 'چالوس' , htmlId : 'chalus' ,
+    { id: 2, name: 'چالوس' , class : "branchLink" ,  htmlId : 'chalus' ,
         products : [
             { id: 26, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
             { id: 27, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
@@ -147,7 +147,7 @@ const branches = [
             { id: 6, name: "پاستا بلونز", src: "../images/products/pasta-blunz.png", category: "Main Dish", price: "170000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
         ]
     },
-    { id: 3, name: 'اقدسیه' , htmlId : 'aghdasie' ,
+    { id: 3, name: 'اقدسیه' , class : "branchLink" ,  htmlId : 'aghdasie' ,
         products : [
             { id: 5, name: "راتاتویی", src: "../images/products/ratatoui.png", category: "Main Dish", price: "160000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
             { id: 6, name: "پاستا بلونز", src: "../images/products/pasta-blunz.png", category: "Main Dish", price: "170000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
@@ -165,7 +165,7 @@ const branches = [
             { id: 18, name: "دلمه برگ مو", src: "../images/products/dolme-barg.png", category: "Appetizer", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
         ]
     },
-    { id: 4, name: 'ونک' , htmlId : 'vanak' ,
+    { id: 4, name: 'ونک' , class : "branchLink" ,  htmlId : 'vanak' ,
         products : [
             { id: 19, name: "دلمه کلم برگ", src: "../images/products/dolme-kalam.png", category: "Appetizer", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
             { id: 20, name: "بادمجان شکم‌پر", src: "../images/products/bademjan-shekampor.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
@@ -200,7 +200,7 @@ const foodMenu = [
 
 // generate HTML for submenu items
 function subMenuWriter(items) {
-    return items.map(item => `<li><a href="#">${item.name}</a></li>`).join('');
+    return items.map(item => `<li class="${item.class}"><a href="#">${item.name}</a></li>`).join('');
 }
 
 // Generate submenu HTML for branches and food menu
@@ -421,6 +421,16 @@ branchesCarts.forEach((brancheCart)=>[
         window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${brancheCart.id}`
     })
 ])
+
+let branchesLinks = document.querySelectorAll('.branchLink');
+branchesLinks.forEach((branchL)=>{
+    branchL.addEventListener('click' , ()=>{
+        let clickedBranchObj = branches.find((branchInBranches)=>{
+            return branchInBranches.name == branchL.firstElementChild.innerHTML;
+        })
+        window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${clickedBranchObj.htmlId}`
+    })
+})
 
 // products items definition(product list) -------------------------------------------------------------------------------------------------------
 const products = [

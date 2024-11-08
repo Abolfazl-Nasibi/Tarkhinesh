@@ -47,7 +47,8 @@ const menuLinks = [
         iconName : 'home',
         hasMobileMenu : true,
         active : true,
-        link : 'index.html'
+        link : 'index.html',
+        specialId : ''
     },
     {
         id : 2,
@@ -56,7 +57,8 @@ const menuLinks = [
         iconName : 'home-hashtag',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : 'branches'
     },
     {
         id : 3,
@@ -65,7 +67,8 @@ const menuLinks = [
         iconName : 'menu-board',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 4,
@@ -74,7 +77,8 @@ const menuLinks = [
         iconName : '',
         hasMobileMenu : false,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 5,
@@ -83,7 +87,8 @@ const menuLinks = [
         iconName : 'user-2',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
     {
         id : 6,
@@ -92,28 +97,31 @@ const menuLinks = [
         iconName : 'call',
         hasMobileMenu : true,
         active : false,
-        link : '#'
+        link : '#',
+        specialId : ''
     },
 ];
 
+
 // Data for branches and foodMenu
 const branches = [
-    { id: 1, name: 'اکباتان' },
-    { id: 2, name: 'چالوس' },
-    { id: 3, name: 'اقدسیه' },
-    { id: 4, name: 'ونک' }
+    { id: 1, name: 'اکباتان' , htmlId : 'ekbatan'  , class : 'branchLink'},
+    { id: 2, name: 'چالوس' , htmlId : 'chalus'  , class : 'branchLink'},
+    { id: 3, name: 'اقدسیه' , htmlId : 'aghdasie'  , class : 'branchLink'},
+    { id: 4, name: 'ونک' , htmlId : 'vanak'  , class : 'branchLink'}
 ];
 
 const foodMenu = [
-    { id: 1, name: 'غذای اصلی' },
-    { id: 2, name: 'پیش غذا' },
-    { id: 3, name: 'دسر' },
-    { id: 4, name: 'نوشیدنی' }
+    { id: 1, name: 'غذای اصلی' , htmlId : '' , class : '',},
+    { id: 2, name: 'پیش غذا' , htmlId : '' , class : '',},
+    { id: 3, name: 'دسر' , htmlId : '' , class : '',},
+    { id: 4, name: 'نوشیدنی' , htmlId : '' , class : '',}
 ];
+
 
 // generate HTML for submenu items
 function subMenuWriter(items) {
-    return items.map(item => `<li><a href="#">${item.name}</a></li>`).join('');
+    return items.map(item => `<li class="${item.class}"><a href="#">${item.name}</a></li>`).join('');
 }
 
 // Generate submenu HTML for branches and food menu
@@ -147,6 +155,7 @@ mobileMenuWrapper.append(mobileMenuFragment);
 // function to create and append menu items
 function createMenuItem(obj,isMobile = false){
     menuLiPlaceHolder = document.createElement('li');
+    menuLiPlaceHolder.id = obj.specialId;
     menuActiveClass = obj.active ? (isMobile ? 'text-xs font-estedad-regular text-primary' : 'font-estedad-bold text-primary border-b border-primary') : '';
     if(!obj.hasSub){
         menuHtmlPlaceHolder = `<a href="${obj.link}" class="${menuActiveClass}">
@@ -158,7 +167,7 @@ function createMenuItem(obj,isMobile = false){
         if(isMobile){
             menuHtmlPlaceHolder = `
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-x-1">
+                    <div class="flex items-center gap-x-1" onclick="">
                         <svg class="w-3 h-3">
                             <use href="#${obj.iconName}"></use>
                         </svg>
@@ -312,5 +321,46 @@ searchInput.addEventListener('input',()=>{
     searchProduct(searchItemsFrag,products,currentSearchedItem);
     itemsWrapper.innerHTML = '';
     itemsWrapper.append(searchItemsFrag);
+})
+
+// branches box -----------------------------------------------------------------------------------------------------
+// open and close branches box
+const branchesMenuLink = document.querySelector('#branches');
+const closeBranchesBox = document.querySelector('#close-branches-box');
+const branchesBox = document.querySelector('#branches-box')
+
+function OpenCloseBranchBox(openBtn,closeBtn){
+    openBtn.addEventListener('click',(event)=>{
+        branchesBox.classList.remove('hidden');
+        branchesBox.classList.add('fixed');
+        mobileMenuBlur.classList.remove('hidden')
+        mobileMenuBlur.classList.add('fixed')
+    })
+    
+    closeBtn.addEventListener('click',(event)=>{
+        branchesBox.classList.add('hidden');
+        branchesBox.classList.remove('fixed');
+        mobileMenuBlur.classList.add('hidden')
+        mobileMenuBlur.classList.remove('fixed')
+    })
+}
+OpenCloseBranchBox(branchesMenuLink,closeBranchesBox)
+
+// events for branche cart and branch links
+const branchesCarts = document.querySelectorAll('.branche-cart');
+branchesCarts.forEach((brancheCart)=>[
+    brancheCart.addEventListener('click',(event)=>{
+        window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${brancheCart.id}`
+    })
+])
+
+let branchesLinks = document.querySelectorAll('.branchLink');
+branchesLinks.forEach((branchL)=>{
+    branchL.addEventListener('click' , ()=>{
+        let clickedBranchObj = branches.find((branchInBranches)=>{
+            return branchInBranches.name == branchL.firstElementChild.innerHTML;
+        })
+        window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${clickedBranchObj.htmlId}`
+    })
 })
 

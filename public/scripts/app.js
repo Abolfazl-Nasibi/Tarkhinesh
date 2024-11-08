@@ -118,10 +118,10 @@ const menuLinks = [
 
 // Data for branches and foodMenu
 const branches = [
-    { id: 1, name: 'اکباتان' , htmlId : 'ekbatan' },
-    { id: 2, name: 'چالوس' , htmlId : 'chalus' },
-    { id: 3, name: 'اقدسیه' , htmlId : 'aghdasie' },
-    { id: 4, name: 'ونک' , htmlId : 'vanak' }
+    { id: 1, name: 'اکباتان' , htmlId : 'ekbatan' , class : "branchLink" },
+    { id: 2, name: 'چالوس' , htmlId : 'chalus' , class : "branchLink" },
+    { id: 3, name: 'اقدسیه' , htmlId : 'aghdasie' , class : "branchLink" },
+    { id: 4, name: 'ونک' , htmlId : 'vanak' , class : "branchLink" }
 ];
 
 const foodMenu = [
@@ -133,7 +133,7 @@ const foodMenu = [
 
 // generate HTML for submenu items
 function subMenuWriter(items) {
-    return items.map(item => `<li><a href="#">${item.name}</a></li>`).join('');
+    return items.map(item => `<li class="${item.class}"><a href="#">${item.name}</a></li>`).join('');
 }
 
 // Generate submenu HTML for branches and food menu
@@ -411,17 +411,26 @@ branchesMenuLink.addEventListener('click',(event)=>{
 })
 
 closeBranchesBox.addEventListener('click',(event)=>{
-    console.log('nigga');
     branchesBox.classList.add('hidden');
     branchesBox.classList.remove('fixed');
     mobileMenuBlur.classList.add('hidden')
     mobileMenuBlur.classList.remove('fixed')
 })
 
-// events for branche cart
+// events for entering branch page
 const branchesCarts = document.querySelectorAll('.branche-cart');
 branchesCarts.forEach((brancheCart)=>[
     brancheCart.addEventListener('click',(event)=>{
         window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${brancheCart.id}`
     })
 ])
+
+let branchesLinks = document.querySelectorAll('.branchLink');
+branchesLinks.forEach((branchL)=>{
+    branchL.addEventListener('click' , ()=>{
+        let clickedBranchObj = branches.find((branchInBranches)=>{
+            return branchInBranches.name == branchL.firstElementChild.innerHTML;
+        })
+        window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${clickedBranchObj.htmlId}`
+    })
+})
