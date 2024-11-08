@@ -135,8 +135,8 @@ const branches = [
     },
     { id: 2, name: 'چالوس' , htmlId : 'chalus' ,
         products : [
-            { id: 26, name: "کوفته برنجی (Dessert)", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-            { id: 27, name: "پاکورا سبزیجات (Dessert)", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+            { id: 26, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
+            { id: 27, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
             { id: 28, name: "لیموناد", src: "../images/products/limonade.png", category: "Drink", price: "30000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
             { id: 16, name: "کشک بادمجان", src: "../images/products/kashk-bademjan.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 13, score: 5 },
             { id: 17, name: "کوکو سبزی", src: "../images/products/koko-sabzi.png", category: "Appetizer", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
@@ -470,13 +470,13 @@ const products = [
 
 const specialOfferWrapper = document.querySelector('#special-offer-wrapper');
 let branchesFragment = document.createDocumentFragment();
+let serachedBranch = window.location.search.slice(1);
 
 function addFoodsToBranchWrapper(wrapper,branch,fragment){
     fragment = document.createDocumentFragment();
     let branchObj = branches.find((Bbranch)=>{
         return Bbranch.htmlId == branch;
     })
-    console.log(branchObj);
     branchObj.products.forEach((product)=>{
         let slideDiv = document.createElement('div')
         slideDiv.classList = 'swiper-slide  ';
@@ -484,7 +484,7 @@ function addFoodsToBranchWrapper(wrapper,branch,fragment){
         mainDiv.classList = ' w-40 lg:w-72 border border-gray-4 rounded-lg overflow-hidden';
         mainDiv.insertAdjacentHTML('beforeend' , `
                     <img src="${product.src}" alt="image" class="h-28 lg:h-64 object-cover">
-                    <div class="p-2 lg:p-4 flex flex-col items-center gap-y-4">
+                    <div class=" p-2 lg:p-4 flex flex-col items-center gap-y-4 bg-white">
                         <span class="font-estedad-medium lg:font-estedad-bold text-xs lg:text-xl text-gray-8">${product.name}</span>
                         <div class="flex w-full justify-between">
                             <div class="flex flex-col items-start gap-y-1">
@@ -510,7 +510,14 @@ function addFoodsToBranchWrapper(wrapper,branch,fragment){
     wrapper.appendChild(fragment)
 };
 
-addFoodsToBranchWrapper(specialOfferWrapper,'ekbatan',branchesFragment)
-swiper.update();
+addFoodsToBranchWrapper(specialOfferWrapper,serachedBranch,branchesFragment)
+
+// favorite foods item appending
+const favoriteFoodsWrapper = document.querySelector('#favorite-foods-wrapper');
+addFoodsToBranchWrapper(favoriteFoodsWrapper,serachedBranch,branchesFragment)
+
+// foreign foods item appending
+const foreignFoodsWrapper = document.querySelector('#foreign-foods-wrapper');
+addFoodsToBranchWrapper(foreignFoodsWrapper,serachedBranch,branchesFragment)
 
 

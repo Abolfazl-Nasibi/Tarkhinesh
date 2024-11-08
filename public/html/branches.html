@@ -106,6 +106,14 @@
         <symbol id="x" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"  viewBox="0 0 50 50">
             <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"/>
         </symbol>
+        <symbol id="note" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 5.75C7.59 5.75 7.25 5.41 7.25 5V2C7.25 1.59 7.59 1.25 8 1.25C8.41 1.25 8.75 1.59 8.75 2V5C8.75 5.41 8.41 5.75 8 5.75Z" />
+            <path d="M16 5.75C15.59 5.75 15.25 5.41 15.25 5V2C15.25 1.59 15.59 1.25 16 1.25C16.41 1.25 16.75 1.59 16.75 2V5C16.75 5.41 16.41 5.75 16 5.75Z" />
+            <path d="M15 13.75H7C6.59 13.75 6.25 13.41 6.25 13C6.25 12.59 6.59 12.25 7 12.25H15C15.41 12.25 15.75 12.59 15.75 13C15.75 13.41 15.41 13.75 15 13.75Z" />
+            <path d="M12 17.75H7C6.59 17.75 6.25 17.41 6.25 17C6.25 16.59 6.59 16.25 7 16.25H12C12.41 16.25 12.75 16.59 12.75 17C12.75 17.41 12.41 17.75 12 17.75Z" />
+            <path d="M15 22.75H9C3.38 22.75 2.25 20.1 2.25 15.82V9.65C2.25 4.91 3.85 2.98 7.96 2.75H16C16.01 2.75 16.03 2.75 16.04 2.75C20.15 2.98 21.75 4.91 21.75 9.65V15.82C21.75 20.1 20.62 22.75 15 22.75ZM8 4.25C5.2 4.41 3.75 5.29 3.75 9.65V15.82C3.75 19.65 4.48 21.25 9 21.25H15C19.52 21.25 20.25 19.65 20.25 15.82V9.65C20.25 5.3 18.81 4.41 15.98 4.25H8Z" />
+            </symbol>
+            
     </svg>
 
     <!-- header -->
@@ -253,6 +261,7 @@
 
     <!-- main -->
     <main>
+        <!-- special offer section -->
         <section id="special-offer" class="px-4 md:px-16 lg:px-24 py-12 space-y-6">
             <span class=" text-gray-8 text-2xl font-estedad-bold">پیشنهاد ویژه</span>
             <div>
@@ -280,6 +289,74 @@
                     
                     
                 </div>
+            </div>
+        </section>
+        <!-- favorite foods section -->
+        <section id="favorite-foods" class="px-4 md:px-16 lg:px-24 py-12 space-y-6 bg-shade-4 box-border ">
+            <span class=" text-white text-2xl font-estedad-bold">غذاهای محبوب</span>
+            <div>
+
+                <!-- Slider main container -->
+                <div class="swiper relative">
+
+                    <!-- Additional required wrapper -->
+                    <div id="favorite-foods-wrapper" class="swiper-wrapper">
+
+                        
+                    </div>
+                
+                    <!-- next and prev buttons -->
+                    <button class="z-10 absolute left-0 top-1/2 -translate-y-1/2 swiper-next-btn bg-white rounded-md shadow-lg">
+                        <svg class="w-6 h-6 lg:w-10 lg:h-10 rotate-90">
+                            <use href="#arrow-down"></use>
+                        </svg>
+                    </button>
+                    <button class="z-10 absolute right-0 lg:right-0 top-1/2 -translate-y-1/2 swiper-prev-btn bg-white rounded-md shadow-lg">
+                        <svg class="w-6 h-6 lg:w-10 lg:h-10 -rotate-90">
+                            <use href="#arrow-down"></use>
+                        </svg>
+                    </button>
+                    
+                    
+                </div>
+            </div>
+        </section>
+        <!-- foreign foods section -->
+        <section id="foreign-foods" class="px-4 md:px-16 lg:px-24 py-12 space-y-6">
+            <span class=" text-gray-8 text-2xl font-estedad-bold">غذاهای غیر ایرانی</span>
+            <div>
+
+                <!-- Slider main container -->
+                <div class="swiper relative">
+
+                    <!-- Additional required wrapper -->
+                    <div id="foreign-foods-wrapper" class="swiper-wrapper">
+
+                        
+                    </div>
+                
+                    <!-- next and prev buttons -->
+                    <button class="z-10 absolute left-0 top-1/2 -translate-y-1/2 swiper-next-btn bg-white rounded-md shadow-lg">
+                        <svg class="w-6 h-6 lg:w-10 lg:h-10 rotate-90">
+                            <use href="#arrow-down"></use>
+                        </svg>
+                    </button>
+                    <button class="z-10 absolute right-0 lg:right-0 top-1/2 -translate-y-1/2 swiper-prev-btn bg-white rounded-md shadow-lg">
+                        <svg class="w-6 h-6 lg:w-10 lg:h-10 -rotate-90">
+                            <use href="#arrow-down"></use>
+                        </svg>
+                    </button>
+                    
+                    
+                </div>
+            </div>
+            <div class="text-primary flex items-center justify-center pt-2">
+                <button class="flex items-center justify-center gap-x-2 w-[184px] h-10 border border-primary rounded-md">
+                    <svg class="w-6 h-6">
+                        <use href="#note"></use>
+                    </svg>
+                    <span>مشاهده منوی کامل</span>
+                </button>
             </div>
         </section>
     </main>
@@ -433,6 +510,7 @@
     <!-- overlay -->
     <div id="mobile-menu-box-blur" class="z-20 hidden top-0 left-0 w-[100vw] h-[100vh] bg-black/50 backdrop-blur-sm"></div>
 
+    <!-- swiper slider scripts -->
     <script src="../scripts/swiper-bundle.min.js" ></script>
     <script defer>
         var swiper = new Swiper(".swiper", {
