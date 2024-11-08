@@ -483,26 +483,26 @@ function addFoodsToBranchWrapper(wrapper,branch,fragment){
         let mainDiv = document.createElement('div');
         mainDiv.classList = ' w-40 lg:w-72 border border-gray-4 rounded-lg overflow-hidden';
         mainDiv.insertAdjacentHTML('beforeend' , `
-                    <img src="${product.src}" alt="image" class="h-64 object-cover">
-                    <div class="p-4 flex flex-col items-center gap-y-4">
-                        <span class="font-estedad-bold text-xl text-gray-8">${product.name}</span>
+                    <img src="${product.src}" alt="image" class="h-28 lg:h-64 object-cover">
+                    <div class="p-2 lg:p-4 flex flex-col items-center gap-y-4">
+                        <span class="font-estedad-medium lg:font-estedad-bold text-xs lg:text-xl text-gray-8">${product.name}</span>
                         <div class="flex w-full justify-between">
                             <div class="flex flex-col items-start gap-y-1">
                                 <div class="flex items-center gap-x-1 text-gray-5 cursor-pointer">
                                     <svg class=" w-4 h-4">
                                         <use href="#heart"></use>
                                     </svg>
-                                    <span class="font-estedad-bold text-2xs">افزودن به علاقمندی‌ها</span>
+                                    <span class="hidden lg:inline-block font-estedad-bold text-2xs">افزودن به علاقمندی‌ها</span>
                                 </div>
                                 <div class="flex items-center gap-x-1">
                                     <img src="../images/Star.png" alt="image" class="w-4 h-4">
                                     <span class="text-sm font-estedad-medium">${product.score}</span>
-                                    <span class="font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
+                                    <span class="hidden lg:inline-block font-estedad-bold text-2xs text-gray-5">(۵۹ امتیاز)</span>
                                 </div>
                             </div>
-                            ${!product.hasDiscount ? `<div class="flex justify-end text-gray-8 gap-x-1 font-estedad-medium"><span>${product.price}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${product.price}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${product.discountPercent}</span></div><div class="flex font-estedad-medium text-base text-gray-8 gap-x-1"><span>${product.price - product.discountAmount}</span><span>تومان</span></div></div>` }
+                            ${!product.hasDiscount ? `<div class="flex justify-end text-gray-8 gap-x-1 text-xs lg:text-base font-estedad-bold lg:font-estedad-medium"><span>${product.price}</span>   <span>تومان</span>  </div>` :`<div class="flex flex-col justify-between"><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${product.price}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${product.discountPercent}</span></div><div class="flex font-estedad-bold lg:font-estedad-medium text-xs lg:text-base text-gray-8 gap-x-1"><span>${product.price - product.discountAmount}</span><span>تومان</span></div></div>` }
                         </div>
-                        <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
+                        <button class="w-full h-10 bg-primary rounded font-estedad-bold lg:font-estedad-regular text-white text-2xs lg:text-lg">افزودن به سبد خرید</button>
             `);
         slideDiv.append(mainDiv);
         fragment.append(slideDiv);

@@ -253,7 +253,7 @@
 
     <!-- main -->
     <main>
-        <section id="special-offer" class=" px-10 md:px-16 lg:px-24 py-12 space-y-6">
+        <section id="special-offer" class="px-4 md:px-16 lg:px-24 py-12 space-y-6">
             <span class=" text-gray-8 text-2xl font-estedad-bold">پیشنهاد ویژه</span>
             <div>
 
@@ -268,12 +268,12 @@
                 
                     <!-- next and prev buttons -->
                     <button class="z-10 absolute left-0 top-1/2 -translate-y-1/2 swiper-next-btn bg-white rounded-md shadow-lg">
-                        <svg class="w-10 h-10 rotate-90">
+                        <svg class="w-6 h-6 lg:w-10 lg:h-10 rotate-90">
                             <use href="#arrow-down"></use>
                         </svg>
                     </button>
-                    <button class="z-10 absolute right-0 top-1/2 -translate-y-1/2 swiper-prev-btn bg-white rounded-md shadow-lg">
-                        <svg class="w-10 h-10 -rotate-90">
+                    <button class="z-10 absolute right-0 lg:right-0 top-1/2 -translate-y-1/2 swiper-prev-btn bg-white rounded-md shadow-lg">
+                        <svg class="w-6 h-6 lg:w-10 lg:h-10 -rotate-90">
                             <use href="#arrow-down"></use>
                         </svg>
                     </button>
@@ -443,13 +443,17 @@
             prevEl: '.swiper-prev-btn',
         },
         breakpoints: {
-        640: {
+        100: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 60,
+        },
+        520: {
+          slidesPerView: 3,
+          spaceBetween: 90,
         },
         768: {
           slidesPerView: 4,
-          spaceBetween: 40,
+          spaceBetween: 70,
         },
         1024: {
           slidesPerView: 3,

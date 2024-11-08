@@ -791,6 +791,22 @@ video {
   top: 50vh;
 }
 
+.right-10 {
+  right: 2.5rem;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-right-2 {
+  right: -0.5rem;
+}
+
+.-right-20 {
+  right: -5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1822,6 +1838,10 @@ video {
     top: 128px;
   }
 
+  .lg\:right-0 {
+    right: 0px;
+  }
+
   .lg\:inline-block {
     display: inline-block;
   }
@@ -1870,6 +1890,10 @@ video {
     height: 355px;
   }
 
+  .lg\:h-64 {
+    height: 16rem;
+  }
+
   .lg\:w-12 {
     width: 3rem;
   }
@@ -1904,6 +1928,10 @@ video {
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-10 {
+    width: 2.5rem;
   }
 
   .lg\:flex-row {
@@ -1954,6 +1982,14 @@ video {
     font-family: estedad regular;
   }
 
+  .lg\:font-estedad-medium {
+    font-family: estedad medium;
+  }
+
+  .lg\:font-estedad-bold {
+    font-family: estedad bold;
+  }
+
   .lg\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -1977,6 +2013,11 @@ video {
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .group:hover .lg\:group-hover\:flex {
