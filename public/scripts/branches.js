@@ -118,7 +118,7 @@ const menuLinks = [
 
 // Data for branches and foodMenu
 const branches = [
-    { id: 1, name: 'اکباتان' , class : "branchLink" ,  htmlId : 'ekbatan' ,
+    { id: 1, name: 'اکباتان' , location : 'شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم' , class : "branchLink" ,  htmlId : 'ekbatan' ,
         products : [
             { id: 1, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Main Dish", price: "180000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 11, score: 5 },
             { id: 2, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Main Dish", price: "150000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 10, score: 4 },
@@ -133,7 +133,7 @@ const branches = [
             { id: 16, name: "کشک بادمجان", src: "../images/products/kashk-bademjan.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 13, score: 5 },
         ]
     },
-    { id: 2, name: 'چالوس' , class : "branchLink" ,  htmlId : 'chalus' ,
+    { id: 2, name: 'چالوس' , location : 'چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی، رستوران ترخینه' , class : "branchLink" ,  htmlId : 'chalus' ,
         products : [
             { id: 26, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
             { id: 27, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
@@ -147,7 +147,7 @@ const branches = [
             { id: 6, name: "پاستا بلونز", src: "../images/products/pasta-blunz.png", category: "Main Dish", price: "170000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
         ]
     },
-    { id: 3, name: 'اقدسیه' , class : "branchLink" ,  htmlId : 'aghdasie' ,
+    { id: 3, name: 'اقدسیه' , location : 'خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸' , class : "branchLink" ,  htmlId : 'aghdasie' ,
         products : [
             { id: 5, name: "راتاتویی", src: "../images/products/ratatoui.png", category: "Main Dish", price: "160000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
             { id: 6, name: "پاستا بلونز", src: "../images/products/pasta-blunz.png", category: "Main Dish", price: "170000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
@@ -165,7 +165,7 @@ const branches = [
             { id: 18, name: "دلمه برگ مو", src: "../images/products/dolme-barg.png", category: "Appetizer", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
         ]
     },
-    { id: 4, name: 'ونک' , class : "branchLink" ,  htmlId : 'vanak' ,
+    { id: 4, name: 'ونک' , location : 'میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶' , class : "branchLink" ,  htmlId : 'vanak' ,
         products : [
             { id: 19, name: "دلمه کلم برگ", src: "../images/products/dolme-kalam.png", category: "Appetizer", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
             { id: 20, name: "بادمجان شکم‌پر", src: "../images/products/bademjan-shekampor.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
@@ -507,6 +507,9 @@ const products = [
 const specialOfferWrapper = document.querySelector('#special-offer-wrapper');
 let branchesFragment = document.createDocumentFragment();
 let serachedBranch = window.location.search.slice(1);
+let searchedBranchObject = branches.find((branchObj)=>{
+    return branchObj.htmlId == serachedBranch
+})
 
 function addFoodsToBranchWrapper(wrapper,branch,fragment){
     fragment = document.createDocumentFragment();
@@ -546,14 +549,15 @@ function addFoodsToBranchWrapper(wrapper,branch,fragment){
     wrapper.appendChild(fragment)
 };
 
-addFoodsToBranchWrapper(specialOfferWrapper,serachedBranch,branchesFragment)
+addFoodsToBranchWrapper(specialOfferWrapper,serachedBranch,branchesFragment);
 
 // favorite foods item appending
 const favoriteFoodsWrapper = document.querySelector('#favorite-foods-wrapper');
-addFoodsToBranchWrapper(favoriteFoodsWrapper,serachedBranch,branchesFragment)
+addFoodsToBranchWrapper(favoriteFoodsWrapper,serachedBranch,branchesFragment);
 
 // foreign foods item appending
 const foreignFoodsWrapper = document.querySelector('#foreign-foods-wrapper');
-addFoodsToBranchWrapper(foreignFoodsWrapper,serachedBranch,branchesFragment)
+addFoodsToBranchWrapper(foreignFoodsWrapper,serachedBranch,branchesFragment);
 
-
+const branchLocationElem = document.querySelector('#branch-location');
+branchLocationElem.innerHTML = searchedBranchObject.location;

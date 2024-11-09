@@ -842,6 +842,10 @@ video {
   margin-top: 1.5rem;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1149,6 +1153,11 @@ video {
   row-gap: 1.5rem;
 }
 
+.gap-x-11 {
+  -moz-column-gap: 2.75rem;
+       column-gap: 2.75rem;
+}
+
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1217,6 +1226,14 @@ video {
 
 .border {
   border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-\[3px\] {
+  border-width: 3px;
 }
 
 .border-b {
@@ -1386,6 +1403,11 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
 }
 
 .pb-4 {
@@ -1711,6 +1733,10 @@ video {
   width: 100%;
 }
 
+.child\:w-52>* {
+  width: 13rem;
+}
+
 .child\:flex-col>* {
   flex-direction: column;
 }
@@ -1735,6 +1761,10 @@ video {
 .child\:gap-x-1>* {
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
+}
+
+.child\:gap-y-2>* {
+  row-gap: 0.5rem;
 }
 
 .child\:rounded>* {
@@ -1770,6 +1800,10 @@ video {
 
 .child\:pr-2>* {
   padding-right: 0.5rem;
+}
+
+.child\:child\:text-center>*>* {
+  text-align: center;
 }
 
 .child\:text-sm>* {
