@@ -425,12 +425,27 @@ branchesCarts.forEach((brancheCart)=>[
     })
 ])
 
+// made branch submenu links clickable 
+
 let branchesLinks = document.querySelectorAll('.branchLink');
 branchesLinks.forEach((branchL)=>{
     branchL.addEventListener('click' , ()=>{
         let clickedBranchObj = branches.find((branchInBranches)=>{
             return branchInBranches.name == branchL.firstElementChild.innerHTML;
         })
+        window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${clickedBranchObj.htmlId}`
+    })
+})
+
+// made branch cart button clickable
+
+let branchButtons = document.querySelectorAll('.branchBtn');
+branchButtons.forEach((branchBtn)=>{
+    branchBtn.addEventListener('click' , ()=>{
+        let clickedBranchObj = branches.find((branchInBranches)=>{
+            return branchInBranches.htmlId == branchBtn.name
+        })
+        console.log(clickedBranchObj);
         window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${clickedBranchObj.htmlId}`
     })
 })
