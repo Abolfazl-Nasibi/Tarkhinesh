@@ -374,15 +374,15 @@
         </section>
 
         <!-- branch info section -->
-        <section id="branch-info-section">
+        <section id="branch-info-section" class="relative">
             <!-- title -->
             <div class="flex items-center justify-center pb-4">
                 <span class="font-estedad-bold text-2xl">شعبه اکباتان</span>
             </div>
             <!-- image -->
-            <img src="../images/branch-picture.png" alt="image">
-            <!-- info -->
-            <div class="flex justify-center items-center">
+            <img src="../images/branch-picture.png" alt="image" class="w-full h-44 lg:h-[336px] object-cover">
+            <!-- info desktop -->
+            <div class="hidden lg:flex justify-center items-center">
                 <div class="flex justify-center items-center gap-x-11 px-12 py-4 mt-4 mb-2 border-[3px] border-primary rounded child:flex child:flex-col child:justify-center child:items-center child:w-52 child:child:text-center child:gap-y-2">
                     <!-- call -->
                     <div>
@@ -396,7 +396,7 @@
                         <svg class="w-6 h-6">
                             <use href="#location"></use>
                         </svg>
-                        <span id="branch-location"></span>
+                        <span class="branch-location"></span>
                     </div>
                     <!-- branch times open -->
                     <div>
@@ -404,6 +404,36 @@
                             <use href="#clock"></use>
                         </svg>
                         <span>همه‌روزه از ساعت ۱۲  الی ۲۳ </span>
+                    </div>
+                </div>
+            </div>
+            <!-- info mobile -->
+            <div class="flex lg:hidden justify-center items-center">
+                <div class="flex flex-col justify-center items-start px-5 py-2 -translate-y-5 bg-white mb-2 border-[3px] border-primary rounded gap-y-2">
+                    
+                    <!-- branch location -->
+                    <div class="flex justify-center items-center gap-x-1">
+                        <svg class="w-4 h-4">
+                            <use href="#location"></use>
+                        </svg>
+                        <span class="branch-location font-estedad-bold text-2xs"></span>
+                    </div>
+                    <!-- branch location and time -->
+                    <div class="flex justify-between gap-x-16 child:flex child:items-center child:justify-center child:gap-x-1">
+                        <!-- call -->
+                        <div>
+                            <svg class="w-4 h-4">   
+                                <use href="#call"></use>
+                            </svg>
+                            <span class=" font-estedad-bold text-2xs">۰۲۱-۳۳۵۳۵۳۵۴</span>
+                        </div>
+                        <!-- branch times open -->
+                        <div>
+                            <svg class="w-4 h-4">
+                                <use href="#clock"></use>
+                            </svg>
+                            <span class=" font-estedad-bold text-2xs">همه‌روزه از ساعت ۱۲  الی ۲۳ </span>
+                        </div>
                     </div>
                 </div>
             </div>

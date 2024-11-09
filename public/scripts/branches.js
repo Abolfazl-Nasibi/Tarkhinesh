@@ -559,5 +559,7 @@ addFoodsToBranchWrapper(favoriteFoodsWrapper,serachedBranch,branchesFragment);
 const foreignFoodsWrapper = document.querySelector('#foreign-foods-wrapper');
 addFoodsToBranchWrapper(foreignFoodsWrapper,serachedBranch,branchesFragment);
 
-const branchLocationElem = document.querySelector('#branch-location');
-branchLocationElem.innerHTML = searchedBranchObject.location;
+const branchLocationElem = document.querySelectorAll('.branch-location');
+branchLocationElem.forEach((item)=>{
+    item.innerHTML = searchedBranchObject.location;
+})
