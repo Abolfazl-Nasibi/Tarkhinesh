@@ -174,10 +174,10 @@ const branches = [
             { id: 23, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
 
             // Desserts
-            { id: 24, name: "پاستا سبزیجات (Dessert)", src: "../images/products/pasta-sabzi.png", category: "Dessert", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
-            { id: 25, name: "دلمه برگ مو (Dessert)", src: "../images/products/dolme-barg.png", category: "Dessert", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
-            { id: 26, name: "کوفته برنجی (Dessert)", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-            { id: 27, name: "پاکورا سبزیجات (Dessert)", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+            { id: 24, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Dessert", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
+            { id: 25, name: "دلمه برگ مو", src: "../images/products/dolme-barg.png", category: "Dessert", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
+            { id: 26, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
+            { id: 27, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
 
             
             // Drinks
@@ -200,7 +200,7 @@ const foodMenu = [
 
 // generate HTML for submenu items
 function subMenuWriter(items) {
-    return items.map(item => `<li class="${item.class}"><a href="#">${item.name}</a></li>`).join('');
+    return items.map(item => `<li class="${item.class} transition-all py-2 pr-2 w-full"><a href="#">${item.name}</a></li>`).join('');
 }
 
 // Generate submenu HTML for branches and food menu
@@ -237,7 +237,7 @@ function createMenuItem(obj,isMobile = false){
     menuLiPlaceHolder.id = obj.specialId;
     menuActiveClass = obj.active ? (isMobile ? 'text-xs font-estedad-regular text-primary' : 'font-estedad-bold text-primary border-b border-primary') : '';
     if(!obj.hasSub){
-        menuHtmlPlaceHolder = `<a href="${obj.link}" class="${menuActiveClass}">
+        menuHtmlPlaceHolder = `<a href="${obj.link}" class="${menuActiveClass} flex items-center gap-x-1">
                                     ${isMobile&&obj.hasMobileMenu ? `<svg class="w-4 h-4"><use href="#${obj.iconName}"></use></svg>` :``}
                                     ${obj.content}
                                 </a>`;
@@ -252,12 +252,12 @@ function createMenuItem(obj,isMobile = false){
                         </svg>
                         <span>${obj.content}</span>
                     </div>
-                    <svg class="w-4 h-4 group-hover:rotate-180 transition-all">
+                    <svg class="mobileSubArrow w-4 h-4 transition-all">
                         <use href="#arrow-down"></use>
                     </svg>
                 </div>
-                <ul class=" bg-white transition-all child:transition-all hidden child:hidden group-hover:child:block border-t-0 group-hover:border-t flex-col  border-gray-4 mt-0 group-hover:mt-2 divide-y divide-gray-4 font-estedad-bold text-gray-8 text-2xs child:py-2 child:pr-2 child:w-full">
-                ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
+                <ul id="${obj.content=='شعبه' ? 'branchMobileSub' : 'foodMenuMobileSub'}" class=" bg-white transition-all border-t-0 flex-col hidden border-gray-4 mt-0 group-hover:mt-2 divide-y divide-gray-4 font-estedad-bold text-gray-8 text-2xs ">
+                    ${obj.content=='شعبه' ? branchesHtmlHolder : foodMenuHtmlHolder}
                 </ul>
                 `;
             menuLiPlaceHolder.classList.add('group')
@@ -282,6 +282,16 @@ function createMenuItem(obj,isMobile = false){
     }
 }
 
+// function for mobile menu submenu arrows
+let mobileSubArrows = document.querySelectorAll('.mobileSubArrow');
+mobileSubArrows.forEach((arrow)=>{
+    arrow.addEventListener('click' , (event)=>{
+        let ulElem = event.target.parentElement.nextElementSibling;
+        ulElem.classList.toggle('hidden')
+        ulElem.classList.toggle('flex')
+        event.target.classList.toggle('-rotate-90')
+    })
+})
 
 // main page slider--------------------------------------------------------------------------------------------------------------------
 // slider slides definition
@@ -563,3 +573,9 @@ const branchLocationElem = document.querySelectorAll('.branch-location');
 branchLocationElem.forEach((item)=>{
     item.innerHTML = searchedBranchObject.location;
 })
+
+
+// users comments 
+const comments = [
+    {userName : 'آرزو محمدعلیزاده' , date : ''}
+]
