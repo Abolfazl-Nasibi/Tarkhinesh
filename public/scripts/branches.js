@@ -569,13 +569,8 @@ addFoodsToBranchWrapper(favoriteFoodsWrapper,serachedBranch,branchesFragment);
 const foreignFoodsWrapper = document.querySelector('#foreign-foods-wrapper');
 addFoodsToBranchWrapper(foreignFoodsWrapper,serachedBranch,branchesFragment);
 
+
 const branchLocationElem = document.querySelectorAll('.branch-location');
 branchLocationElem.forEach((item)=>{
     item.innerHTML = searchedBranchObject.location;
 })
-
-
-// users comments 
-const comments = [
-    {userName : 'آرزو محمدعلیزاده' , date : ''}
-]
