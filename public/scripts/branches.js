@@ -60,7 +60,7 @@ const menuLinks = [
         hasSub : false,
         iconName : 'home',
         hasMobileMenu : true,
-        active : true,
+        active : false,
         link : 'index.html',
         specialId : ''
     },
@@ -70,7 +70,7 @@ const menuLinks = [
         hasSub : true,
         iconName : 'home-hashtag',
         hasMobileMenu : true,
-        active : false,
+        active : true,
         link : '#',
         specialId : 'branches'
     },

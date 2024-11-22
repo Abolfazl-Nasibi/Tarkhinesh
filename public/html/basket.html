@@ -7,7 +7,7 @@
     
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/app.css">
-    <script src="../scripts/app.js" defer></script>
+    <script src="../scripts/basket.js" defer></script>
 </head>
 <body class="relative font-estedad-regular overflow-x-hidden ">
     <!-- all app icons -->
@@ -120,21 +120,21 @@
             </ul>
         </nav>
         <!-- search & cart & profile -->
-        <div class="flex items-center gap-x-2 text-primary child:p-1 lg:child:p-2 child:bg-tint-1 child:rounded ">  
+        <div class="flex items-center gap-x-2 text-primary child:p-1 lg:child:p-2  child:rounded ">  
             <!-- search -->
-            <div id="search-icon" class="cursor-pointer">
+            <div id="search-icon" class="cursor-pointer bg-tint-1">
                 <svg class="w-4 h-4 lg:w-6 lg:h-6">
                     <use href="#search"></use>
                 </svg>
             </div>
             <!-- cart -->
-            <a href="basket.html">
+            <a href="basket.html" class="bg-primary text-white">
                 <svg class="w-4 h-4 lg:w-6 lg:h-6">
                     <use href="#shopping-cart"></use>
                 </svg>
             </a>
             <!-- profile -->
-            <div class="group relative">
+            <div class="group relative bg-tint-1">
                 <svg class="w-4 h-4 lg:w-6 lg:h-6">
                     <use href="#user"></use>
                 </svg>
@@ -224,199 +224,11 @@
         </div>
     </div>
 
-    <!-- main page -->
+    <!-- main -->
     <main>
-        <!--slider section -->
-        <section id="sliderSection" class="relative">
-            
-            <div id="slider" class="w-full h-44 lg:h-[336px] bg-black overflow-hidden relative">
-            </div>
-            <!-- next and prev buttons -->
-            <button class="hidden lg:inline-block prev absolute left-9 top-36 text-white">
-                <svg class="w-8 h-8 rotate-90">
-                    <use href="#arrow-down"></use>
-                </svg>
-            </button>
-            <button class="hidden lg:inline-block next absolute right-9 top-36 text-white">
-                <svg class="w-8 h-8 -rotate-90">
-                    <use href="#arrow-down"></use>
-                </svg>
-            </button>
-            <!-- dots section -->
-            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 lg:w-40">
-                <img src="../images/slider-rectangle.png" alt="">
-                <!-- dots -->
-                <div class="dots-container flex items-center justify-center w-full h-full gap-x-1 absolute left-0 top-0">
-                </div>
-            </div>
 
-        </section>
-
-        <!-- restaurant menu section -->
-        <section id="restaurantMenu">
-            <!-- mobile search box -->
-            <div class="lg:hidden flex justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-sm">
-                <input id="mobile-search-input" class="w-full focus:outline-none focus:border-none font-estedad-bold text-xs placeholder:text-gray-8" type="text" placeholder="جستجو">
-                <svg id="mobile-search-button" class="w-4 h-4">
-                    <use href="#search"></use>
-                </svg>
-            </div>
-            <!-- restaurant menu container -->
-            <div class="w-full py-16 relative">
-                <span class="absolute left-1/2 -translate-x-1/2 top-12 font-estedad-bold text-2xl">منوی رستوران</span>
-                <div class="flex justify-evenly xl:justify-between flex-wrap pt-40 md:pt-60 px-5 md:px-28 gap-y-28 text-xs xl:text-xl child:relative child:w-[152px] child:h-20  child:mx-2  xl:child:min-w-52 xl:child:h-32 xl:child:mx-0 2xl:child:min-w-72 2xl:child:h-40 child:rounded-xl child:bg-primary child:shadow-xl">
-                    <a href="#">
-                        <img src="../images/resturant-menu-mainDishes.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">غذای اصلی</span>
-                    </a>
-                    <a href="#">
-                        <img src="../images/resturant-menu-appetizer.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">پیش غذا</span>
-                    </a>
-                    <a href="#">
-                        <img src="../images/resturant-menu-dessert.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">دسر</span>
-                    </a>
-                    <a href="#">
-                        <img src="../images/resturant-menu-drinks.png" alt="image" class="w-32 xl:w-36 2xl:w-60 absolute xl:-top-10 2xl:top-0 -translate-y-1/2 left-0 right-0 mx-auto">
-                        <span class="absolute bottom-0 translate-y-1/2 left-0 right-0 mx-auto flex justify-center items-center w-24 h-6 xl:w-40 xl:h-12 shadow-xl rounded-md bg-white">نوشیدنی</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- about section -->
-        <section id="about-section">
-            <div class="text-white flex flex-col lg:flex-row justify-between px-10 xl:px-28">
-                <div class="flex flex-col gap-y-6 py-12">
-                    <span class="font-estedad-bold text-base lg:text-2xl">رستوران‌های زنجیره‌ای ترخینه</span>
-                    <p class="w-80  lg:w-[500px] xl:w-[600px] font-estedad-bold lg:font-estedad-regular text-2xs lg:text-xl">مهمان‌نوازی یکی از مهم‌ترین مشخصه‌های ایرانیان است و باعث افتخار ماست که بیش از 20 سال است خدمت‌گزار مردم شریف ایران هستیم. ما در رستوران‌های زنجیره‌ای ترخینه همواره تلاش کردیم که در محیطی اصیل بر پایه معماری و طراحی مدرن در کنار طبیعتی دلنواز، غذایی سالم و درخور شان شما عزیزان ارائه دهیم.</p>
-                    <div class="flex items-center justify-end">
-                        <a href="#" class="flex items-center justify-center gap-x-2 w-40 lg:w-44 h-8 lg:h-10  rounded border border-white">
-                            <span class="text-sm lg:text-lg">اطلاعات بیشتر</span>
-                            <svg class="w-4 h-4 lg:w-6 lg:h-6 rotate-90">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="grid grid-rows-2 grid-cols-2 text-lg py-14 gap-y-4 lg:gap-y-0 gap-x-6 child:flex child:flex-col child:items-center child:justify-center child:lg:text-lg child:text-sm">
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#user"></use>
-                        </svg>
-                        پرسنلی مجرب و حرفه‌ای
-                    </span>
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#diagram"></use>
-                        </svg>
-                        کیفیت بالای غذاها 
-                    </span>
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#home-wifi"></use>
-                        </svg>
-                        محیطی دلنشین و آرام 
-                    </span>
-                    <span>
-                        <svg class="w-6 h-6 lg:w-12 lg:h-12">
-                            <use href="#menu-board"></use>
-                        </svg>
-                        منوی متنوع 
-                    </span>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- branches section -->
-        <section id="branches-section" class="mb-12">
-            <!-- title -->
-            <div class="flex justify-center items-center pt-12 pb-8 font-estedad-bold text-2xl text-gray-8">
-                <span>ترخینه گردی</span>
-            </div>
-            <!--desktop carts -->
-            <div class="flex flex-wrap justify-center px-5 lg:px-0 gap-6 child:w-72">
-                <!-- branch cart -->
-                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
-                    <!-- image -->
-                    <img src="../images/branch-1.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
-                    <!-- info -->
-                    <div class="flex flex-col items-center justify-between py-4">
-                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
-                            <span class="text-sm lg:text-xl text-gray-8">شعبه اکباتان</span>
-                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم</p>
-                        </div>
-                        <!-- branch page button -->
-                        <a href="#" name="ekbatan" class="branchBtn hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
-                            <span>صفحه شعبه</span> 
-                            <svg class=" w-4 h-4 rotate-90">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- branch cart -->
-                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
-                    <!-- image -->
-                    <img src="../images/branch-2.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
-                    <!-- info -->
-                    <div class="flex flex-col items-center justify-between py-4">
-                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
-                            <span class="text-sm lg:text-xl text-gray-8">شعبه چالوس</span>
-                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">چالوس، خیابان ۱۷ شهریور، بعد کوچه کوروش، جنب داروخانه دکتر میلانی</p>
-                        </div>
-                        <!-- branch page button -->
-                        <a href="#" name="chalus" class="branchBtn hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
-                            <span>صفحه شعبه</span>
-                            <svg class=" w-4 h-4 rotate-90">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- branch cart -->
-                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
-                    <!-- image -->
-                    <img src="../images/branch-1.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
-                    <!-- info -->
-                    <div class="flex flex-col items-center justify-between py-4">
-                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
-                            <span class="text-sm lg:text-xl text-gray-8">شعبه اقدسیه</span>
-                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">خیابان اقدسیه ، نرسیده به میدان خیام، پلاک ۸</p>
-                        </div>
-                        <!-- branch page button -->
-                        <a href="#" name="aghdasie" class="branchBtn hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
-                            <span>صفحه شعبه</span>
-                            <svg class=" w-4 h-4 rotate-90">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <!-- branch cart -->
-                <div class="group flex lg:inline-block lg:h-[355px] transition-all border border-gray-4 rounded hover:border-primary hover:shadow-md">
-                    <!-- image -->
-                    <img src="../images/branch-2.png" alt="" class="transition-all duration-75 w-36 lg:w-full h-20 lg:h-[230px] object-cover lg:group-hover:h-[198px] lg:group-hover:brightness-50">
-                    <!-- info -->
-                    <div class="flex flex-col items-center justify-between py-4">
-                        <div class="flex flex-col items-center px-2 gap-y-1 lg:gap-y-2 font-estedad-bold">
-                            <span class="text-sm lg:text-xl text-gray-8">شعبه ونک</span>
-                            <p class="text-2xs lg:text-sm text-gray-7 w-[158px] lg:w-auto lg:h-14">میدان ونک، خیابان فردوسی، نبش کوچه نیلوفر، پلاک ۲۶</p>
-                        </div>
-                        <!-- branch page button -->
-                        <a href="#" name="vanak" class="branchBtn hidden lg:group-hover:flex items-center justify-center w-32 h-8 gap-x-1 border border-shade-4 rounded text-shade-4">
-                            <span>صفحه شعبه</span>
-                            <svg class=" w-4 h-4 rotate-90">
-                                <use href="#arrow-down"></use>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>           
-        </section>
     </main>
+    
     <!-- footer -->
     <footer id="footer" class="relative">
         <div class="flex justify-center lg:justify-between w-full h-80 px-28 py-8 gap-x-20 text-gray-4">
