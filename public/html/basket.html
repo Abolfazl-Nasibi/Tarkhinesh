@@ -104,10 +104,15 @@
         <symbol id="x" xmlns="http://www.w3.org/2000/svg" fill="currentcolor"  viewBox="0 0 50 50">
             <path d="M 5.9199219 6 L 20.582031 27.375 L 6.2304688 44 L 9.4101562 44 L 21.986328 29.421875 L 31.986328 44 L 44 44 L 28.681641 21.669922 L 42.199219 6 L 39.029297 6 L 27.275391 19.617188 L 17.933594 6 L 5.9199219 6 z M 9.7167969 8 L 16.880859 8 L 40.203125 42 L 33.039062 42 L 9.7167969 8 z"/>
         </symbol>
+        <symbol id="tick" viewBox="0 0 24 24" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 22.75H9C3.57 22.75 1.25 20.43 1.25 15V9C1.25 3.57 3.57 1.25 9 1.25H15C20.43 1.25 22.75 3.57 22.75 9V15C22.75 20.43 20.43 22.75 15 22.75ZM9 2.75C4.39 2.75 2.75 4.39 2.75 9V15C2.75 19.61 4.39 21.25 9 21.25H15C19.61 21.25 21.25 19.61 21.25 15V9C21.25 4.39 19.61 2.75 15 2.75H9Z"/>
+            <path d="M10.5795 15.5801C10.3795 15.5801 10.1895 15.5001 10.0495 15.3601L7.21945 12.5301C6.92945 12.2401 6.92945 11.7601 7.21945 11.4701C7.50945 11.1801 7.98945 11.1801 8.27945 11.4701L10.5795 13.7701L15.7195 8.6301C16.0095 8.3401 16.4895 8.3401 16.7795 8.6301C17.0695 8.9201 17.0695 9.4001 16.7795 9.6901L11.1095 15.3601C10.9695 15.5001 10.7795 15.5801 10.5795 15.5801Z"/>
+        </symbol>
+            
     </svg>
 
     <!-- header -->
-    <header class="hidden lg:flex justify-between items-center px-2 lg:px-4 xl:px-10 2xl:px-28 h-28">
+    <header class="hidden lg:flex justify-between items-center shadow-md px-2 lg:px-4 xl:px-10 2xl:px-28 h-28">
         <!-- logo -->
         <div class="flex items-center gap-x-2">
             <img class="w-8 lg:w-12" src="../images/Logo.png" alt="">
@@ -226,7 +231,56 @@
 
     <!-- main -->
     <main>
-
+        <!-- levels section -->
+        <section id="levels-section" class="hidden lg:flex justify-center items-center py-10 text-gray-4 text-sm ">
+            <div class="flex items-center justify-center p-2 gap-x-1 text-primary text-base font-estedad-bold">
+                <svg class="w-6 h-6">
+                    <use href="#shopping-cart"></use>
+                </svg>
+                سبد خرید
+            </div>
+            <img src="../images/line.png" alt="" class="w-52">
+            <div class="flex items-center justify-center p-2 gap-x-1">
+                <svg class="w-6 h-6">
+                    <use href="#tick"></use>
+                </svg>
+                تکمیل اطلاعات
+            </div>
+            <img src="../images/line.png" alt="" class="w-52">
+            <div class="flex items-center justify-center p-2 gap-x-1">
+                <svg class="w-6 h-6">
+                    <use href="#wallet"></use>
+                </svg>
+                پرداخت
+            </div>
+        </section>
+        <!-- total price and products section -->
+        <section class="flex justify-center items-start">
+            <!-- products -->
+            <div>
+                <!-- basketed product -->
+                <div>
+                    <img src="../images/products/pasta-sabzi.png" alt="">
+                    <div>
+                        <span>پاستا سبزیجات</span>
+                        <span>مواد اولیه محصول...</span>
+                        <div>
+                            <span>
+                                <img src="../images/star-empt.png" alt="">
+                                <img src="../images/star-empt.png" alt="">
+                                <img src="../images/Star.png" alt="">
+                                <img src="../images/Star.png" alt="">
+                                <img src="../images/Star.png" alt="">
+                            </span>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+            <!-- basket info -->
+            <div></div>
+        </section>
     </main>
     
     <!-- footer -->
