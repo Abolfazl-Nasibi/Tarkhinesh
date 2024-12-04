@@ -349,3 +349,6 @@ branchButtons.forEach((branchBtn)=>{
         window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${clickedBranchObj.htmlId}`
     })
 })
+
+const localFoods = JSON.parse(localStorage.getItem('localFoods')) || []
+console.log(localFoods);

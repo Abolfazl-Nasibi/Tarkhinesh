@@ -119,6 +119,7 @@ const menuLinks = [
 // Data for branches and foodMenu
 const branches = [
     { id: 1, name: 'اکباتان' , location : 'شهرک اکباتان، فاز ۳، مجتمع تجاری کوروش، طبقه سوم' , class : "branchLink" ,  htmlId : 'ekbatan' ,
+        
         products : [
             { id: 1, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Main Dish", price: "180000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 11, score: 5 },
             { id: 2, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Main Dish", price: "150000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 10, score: 4 },
@@ -551,8 +552,9 @@ function addFoodsToBranchWrapper(wrapper,branch,fragment){
                             </div>
                             ${!product.hasDiscount ? `<div class="flex justify-end text-gray-8 gap-x-1 text-xs lg:text-base font-estedad-bold lg:font-estedad-medium"><span>${product.price}</span>   <span>تومان</span>  </div>` :`<div class="flex flex-col justify-between"><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${product.price}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${product.discountPercent}</span></div><div class="flex font-estedad-bold lg:font-estedad-medium text-xs lg:text-base text-gray-8 gap-x-1"><span>${product.price - product.discountAmount}</span><span>تومان</span></div></div>` }
                         </div>
-                        <button class="w-full h-10 bg-primary rounded font-estedad-bold lg:font-estedad-regular text-white text-2xs lg:text-lg">افزودن به سبد خرید</button>
+                        <button class="w-full h-10 bg-primary rounded font-estedad-bold lg:font-estedad-regular text-white text-2xs lg:text-lg" onclick='addProductToLocal(event)'>افزودن به سبد خرید</button>
             `);
+        
         slideDiv.append(mainDiv);
         fragment.append(slideDiv);
     })
@@ -574,3 +576,10 @@ const branchLocationElem = document.querySelectorAll('.branch-location');
 branchLocationElem.forEach((item)=>{
     item.innerHTML = searchedBranchObject.location;
 })
+
+function addProductToLocal(event){
+    const clickedProductName = event.target.parentElement.firstElementChild.innerHTML
+    localFoods = JSON.parse(localStorage.getItem('localFoods')) || [];
+    localFoods.push(clickedProductName);
+    localStorage.setItem('localFoods' , JSON.stringify(localFoods))
+}
