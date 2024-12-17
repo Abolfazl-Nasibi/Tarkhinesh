@@ -372,5 +372,58 @@ function addFoodsFromLocal(){
 };
 addFoodsFromLocal();
 
+// add foods html obj to website
+const basketFoodWrapper = document.querySelector('#basketFoodsWrapper');
+const basketFoodsFragment = document.createDocumentFragment()
+
+function addFoodsToWebsite(outList , wrapper){
+    outList.forEach((listItem)=>{
+        let mainDiv = document.createElement('div')
+        mainDiv.classList = 'flex items-center h-40 border border-gray-4 rounded-lg overflow-hidden';
+        mainDiv.innerHTML = `
+                    <img src="../images/products/pasta-sabzi.png" alt="" class="w-[169px] h-full object-cover">
+                    <div class=" h-full w-[295px] flex flex-col items-start justify-between gap-y-1 pr-8 py-4">
+                        <!-- title and  -->
+                        <span class="font-estedad-bold text-xl">${listItem.name}</span>
+                        <!-- resources -->
+                        <span class="h-[50px] flex items-center text-sm">مواد اولیه محصول...</span>
+                        <div class="flex">
+                            <!-- stars -->
+                            <span class="flex child:w-6 child:h-6">
+                                <img src="../images/star-empt.png" alt="">
+                                <img src="../images/star-empt.png" alt="">
+                                <img src="../images/Star.png" alt="">
+                                <img src="../images/Star.png" alt="">
+                                <img src="../images/Star.png" alt="">
+                            </span>
+                            
+                        </div>
+                    </div>
+                    <div class="h-full flex  flex-col items-end justify-between px-6 py-4">
+                        <!-- trash icon -->
+                        <div class="flex items-start justify-end">
+                            <svg class="w-6 h-6">
+                                <use href="#trash"></use>
+                            </svg>
+                        </div>
+                        ${listItem.hasDiscount ? `<!-- discount price -->
+                        <div class="flex items-center justify-center gap-x-2">
+                            <span class="line-through text-gray-5">${listItem.price}</span>
+                            <span class="bg-error-extraLight text-error rounded-xl px-1 text-xs">%${listItem.discountPercent}</span>
+                        </div>` : ''}
+                        
+                        <!-- price -->
+                        <div class="flex items-center justify-center gap-x-1">
+                            <span class="text-xl">${listItem.hasDiscount ? listItem.price - listItem.discountAmount : listItem.price}</span>
+                            <span class="text-lg">تومان</span>
+                        </div>
+                    </div>
+        `;
+        wrapper.append(mainDiv)
+    })
+};
+addFoodsToWebsite(basket , basketFoodsFragment)
+basketFoodWrapper.append(basketFoodsFragment)
+
 
 

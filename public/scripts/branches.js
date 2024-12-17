@@ -577,6 +577,8 @@ branchLocationElem.forEach((item)=>{
     item.innerHTML = searchedBranchObject.location;
 })
 
+// add to basket
+
 function addProductToLocal(event){
     const clickedProductName = event.target.parentElement.firstElementChild.innerHTML
     localFoods = JSON.parse(localStorage.getItem('localFoods')) || [];

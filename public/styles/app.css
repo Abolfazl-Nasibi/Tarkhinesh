@@ -1480,6 +1480,10 @@ video {
   padding-bottom: 2rem;
 }
 
+.pb-12 {
+  padding-bottom: 3rem;
+}
+
 .pb-4 {
   padding-bottom: 1rem;
 }
@@ -1510,10 +1514,6 @@ video {
 
 .pt-40 {
   padding-top: 10rem;
-}
-
-.pb-12 {
-  padding-bottom: 3rem;
 }
 
 .text-center {
@@ -1802,14 +1802,6 @@ video {
 
 .scrollbar-track-primary {
   --scrollbar-track: #417F56 !important;
-}
-
-.scrollbar-thumb-gray-7 {
-  --scrollbar-thumb: #717171 !important;
-}
-
-.scrollbar-thumb-primary {
-  --scrollbar-thumb: #417F56 !important;
 }
 
 .placeholder\:text-gray-3::-moz-placeholder {
