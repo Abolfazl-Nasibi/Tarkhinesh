@@ -228,46 +228,46 @@ mobileSubArrows.forEach((arrow)=>{
 
 // products items definition(product list) -------------------------------------------------------------------------------------------------------
 const products = [
-// Main Dishes
-{ id: 1, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Main Dish", price: "180000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 11, score: 5 },
-{ id: 2, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Main Dish", price: "150000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 10, score: 4 },
-{ id: 3, name: "سوشی", src: "../images/products/soushi.png", category: "Main Dish", price: "200000", count: 1, hasDiscount: true, discountAmount: 25000, discountPercent: 13, score: 2 },
-{ id: 4, name: "لازانیا", src: "../images/products/lazania.png", category: "Main Dish", price: "190000", count: 1, hasDiscount: true, discountAmount: 30000, discountPercent: 16, score: 5 },
-{ id: 5, name: "راتاتویی", src: "../images/products/ratatoui.png", category: "Main Dish", price: "160000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-{ id: 6, name: "پاستا بلونز", src: "../images/products/pasta-blunz.png", category: "Main Dish", price: "170000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
-{ id: 7, name: "پیتزا قارچ", src: "../images/products/pizza-qharch.png", category: "Main Dish", price: "180000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
-{ id: 8, name: "پیتزا سبزیجات و خامه", src: "../images/products/pizza-sabzi.png", category: "Main Dish", price: "200000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
-{ id: 9, name: "پیتزا بادمجان و زیتون", src: "../images/products/pizza-bademjan.png", category: "Main Dish", price: "190000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
-{ id: 10, name: "پیتزا روکولا", src: "../images/products/pizza-rokulla.png", category: "Main Dish", price: "150000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-{ id: 11, name: "پالاک پنیر", src: "../images/products/palak-cheese.png", category: "Main Dish", price: "160000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
-{ id: 12, name: "کالزونه اسفناج", src: "../images/products/esfenaj-kalzune.png", category: "Main Dish", price: "170000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
+    // Main Dishes
+    { id: 1, name: "پاستا سبزیجات", src: "../images/products/pasta-sabzi.png", category: "Main Dish", price: "180000", count : 0, hasDiscount: true, discountAmount: 20000, discountPercent: 11, score: 5 },
+    { id: 2, name: "کوفته برنجی", src: "../images/products/kufte-berenji.png", category: "Main Dish", price: "150000", count : 0, hasDiscount: true, discountAmount: 15000, discountPercent: 10, score: 4 },
+    { id: 3, name: "سوشی", src: "../images/products/soushi.png", category: "Main Dish", price: "200000", count : 0, hasDiscount: true, discountAmount: 25000, discountPercent: 13, score: 2 },
+    { id: 4, name: "لازانیا", src: "../images/products/lazania.png", category: "Main Dish", price: "190000", count : 0, hasDiscount: true, discountAmount: 30000, discountPercent: 16, score: 5 },
+    { id: 5, name: "راتاتویی", src: "../images/products/ratatoui.png", category: "Main Dish", price: "160000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
+    { id: 6, name: "پاستا بلونز", src: "../images/products/pasta-blunz.png", category: "Main Dish", price: "170000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
+    { id: 7, name: "پیتزا قارچ", src: "../images/products/pizza-qharch.png", category: "Main Dish", price: "180000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
+    { id: 8, name: "پیتزا سبزیجات و خامه", src: "../images/products/pizza-sabzi.png", category: "Main Dish", price: "200000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
+    { id: 9, name: "پیتزا بادمجان و زیتون", src: "../images/products/pizza-bademjan.png", category: "Main Dish", price: "190000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    { id: 10, name: "پیتزا روکولا", src: "../images/products/pizza-rokulla.png", category: "Main Dish", price: "150000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
+    { id: 11, name: "پالاک پنیر", src: "../images/products/palak-cheese.png", category: "Main Dish", price: "160000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
+    { id: 12, name: "کالزونه اسفناج", src: "../images/products/esfenaj-kalzune.png", category: "Main Dish", price: "170000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
 
-// Appetizers
-{ id: 13, name: "فلافل", src: "../images/products/falafel.png", category: "Appetizer", price: "90000", count: 1, hasDiscount: true, discountAmount: 10000, discountPercent: 11, score: 3 },
-{ id: 14, name: "باقالا قاتوق", src: "../images/products/baghala.png", category: "Appetizer", price: "100000", count: 1, hasDiscount: true, discountAmount: 20000, discountPercent: 20, score: 4 },
-{ id: 15, name: "میرزا قاسمی", src: "../images/products/mirza-ghasemi.png", category: "Appetizer", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
-{ id: 16, name: "کشک بادمجان", src: "../images/products/kashk-bademjan.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: true, discountAmount: 15000, discountPercent: 13, score: 5 },
-{ id: 17, name: "کوکو سبزی", src: "../images/products/koko-sabzi.png", category: "Appetizer", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
-{ id: 18, name: "دلمه برگ مو", src: "../images/products/dolme-barg.png", category: "Appetizer", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
-{ id: 19, name: "دلمه کلم برگ", src: "../images/products/dolme-kalam.png", category: "Appetizer", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
-{ id: 20, name: "بادمجان شکم‌پر", src: "../images/products/bademjan-shekampor.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
-{ id: 21, name: "بورانی بادمجان", src: "../images/products/borani.png", category: "Appetizer", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
-{ id: 22, name: "کله جوش", src: "../images/products/kale-joosh.png", category: "Appetizer", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-{ id: 23, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Appetizer", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
+    // Appetizers
+    { id: 13, name: "فلافل", src: "../images/products/falafel.png", category: "Appetizer", price: "90000", count : 0, hasDiscount: true, discountAmount: 10000, discountPercent: 11, score: 3 },
+    { id: 14, name: "باقالا قاتوق", src: "../images/products/baghala.png", category: "Appetizer", price: "100000", count : 0, hasDiscount: true, discountAmount: 20000, discountPercent: 20, score: 4 },
+    { id: 15, name: "میرزا قاسمی", src: "../images/products/mirza-ghasemi.png", category: "Appetizer", price: "110000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    { id: 16, name: "کشک بادمجان", src: "../images/products/kashk-bademjan.png", category: "Appetizer", price: "120000", count : 0, hasDiscount: true, discountAmount: 15000, discountPercent: 13, score: 5 },
+    { id: 17, name: "کوکو سبزی", src: "../images/products/koko-sabzi.png", category: "Appetizer", price: "100000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
+    { id: 18, name: "دلمه برگ مو", src: "../images/products/dolme-barg.png", category: "Appetizer", price: "110000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
+    { id: 19, name: "دلمه کلم برگ", src: "../images/products/dolme-kalam.png", category: "Appetizer", price: "90000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    { id: 20, name: "بادمجان شکم‌پر", src: "../images/products/bademjan-shekampor.png", category: "Appetizer", price: "120000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
+    { id: 21, name: "بورانی بادمجان", src: "../images/products/borani.png", category: "Appetizer", price: "90000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 1 },
+    { id: 22, name: "کله جوش", src: "../images/products/kale-joosh.png", category: "Appetizer", price: "100000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
+    { id: 23, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Appetizer", price: "120000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
 
-// Desserts
-{ id: 24, name: "پاستا سبزیجات (Dessert)", src: "../images/products/pasta-sabzi.png", category: "Dessert", price: "100000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
-{ id: 25, name: "دلمه برگ مو (Dessert)", src: "../images/products/dolme-barg.png", category: "Dessert", price: "110000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
-{ id: 26, name: "کوفته برنجی (Dessert)", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-{ id: 27, name: "پاکورا سبزیجات (Dessert)", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    // Desserts
+    { id: 24, name: "پاستا سبزیجات (Dessert)", src: "../images/products/pasta-sabzi.png", category: "Dessert", price: "100000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
+    { id: 25, name: "دلمه برگ مو (Dessert)", src: "../images/products/dolme-barg.png", category: "Dessert", price: "110000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
+    { id: 26, name: "کوفته برنجی (Dessert)", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
+    { id: 27, name: "پاکورا سبزیجات (Dessert)", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
 
-  
-// Drinks
-{ id: 28, name: "لیموناد", src: "../images/products/limonade.png", category: "Drink", price: "30000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
-{ id: 29, name: "چای ماسالا", src: "../images/products/Chai-masala.png", category: "Drink", price: "40000", count: 1, hasDiscount: true, discountAmount: 4000, discountPercent: 10, score: 3 },
-{ id: 30, name: "هات چاکلت", src: "../images/products/hot-chocolate.png", category: "Drink", price: "35000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
-{ id: 31, name: "اسپرسو", src: "../images/products/espresso.png", category: "Drink", price: "50000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
-{ id: 32, name: "شیرشکلات", src: "../images/products/chocolate-milk.png", category: "Drink", price: "45000", count: 1, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 }
+    
+    // Drinks
+    { id: 28, name: "لیموناد", src: "../images/products/limonade.png", category: "Drink", price: "30000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
+    { id: 29, name: "چای ماسالا", src: "../images/products/Chai-masala.png", category: "Drink", price: "40000", count : 0, hasDiscount: true, discountAmount: 4000, discountPercent: 10, score: 3 },
+    { id: 30, name: "هات چاکلت", src: "../images/products/hot-chocolate.png", category: "Drink", price: "35000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
+    { id: 31, name: "اسپرسو", src: "../images/products/espresso.png", category: "Drink", price: "50000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    { id: 32, name: "شیرشکلات", src: "../images/products/chocolate-milk.png", category: "Drink", price: "45000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 }
 ];
 
 
@@ -350,5 +350,27 @@ branchButtons.forEach((branchBtn)=>{
     })
 })
 
-const localFoods = JSON.parse(localStorage.getItem('localFoods')) || []
-console.log(localFoods);
+// get basketed products from local host 
+
+const localFoods = JSON.parse(localStorage.getItem('localFoods')) || [];
+
+const basket = [];
+
+function addFoodsFromLocal(){
+    localFoods.forEach((foodName)=>{
+        let foundedFood = products.find((product)=>{
+            return product.name == foodName
+        })
+        if (basket.includes(foundedFood)){
+            foundedFood.count+=1
+        }
+        else{
+            basket.push(foundedFood)
+            foundedFood.count+=1
+        }
+    })
+};
+addFoodsFromLocal();
+
+
+
