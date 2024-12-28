@@ -21,6 +21,13 @@ function removeBasketItem(event){
 }
 
 function basketInfoUpdater(){
+    if (basket.length == 0){
+        const basketSection = document.querySelector('#basketSection');
+        basketSection.classList = 'hidden';
+
+        const emptyBasket = document.querySelector('#emptyBasket');
+        emptyBasket.classList.toggle('hidden')
+    }
     // products count
     const productCount = document.querySelector('#product-count');
     productCount.innerHTML = `(${basket.length})`;
@@ -480,5 +487,10 @@ basketFoodWrapper.append(basketFoodsFragment)
 // basket information section
 basketInfoUpdater()
 
-
+const removeAllBtn = document.querySelector('#removeAll');
+removeAllBtn.addEventListener('click' , (event)=>{
+    basket = [];
+    basketInfoUpdater();
+    localStorage.setItem('localFoods' , JSON.stringify([]))
+})
 

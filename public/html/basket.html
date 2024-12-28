@@ -270,7 +270,7 @@
             </div>
         </section>
         <!-- total price and products section -->
-        <section class="flex justify-center items-start gap-x-6 pb-12">
+        <section id="basketSection" class="flex justify-center items-start gap-x-6 pb-12">
             <!-- products -->
             <div id="basketFoodsWrapper" class="h-[554px] rounded-lg border border-gray-4 p-6 overflow-auto  space-y-4 scrollbar-thin scrollbar-track-primary">
                 
@@ -281,10 +281,10 @@
                 <div class="flex justify-between items-center">
                     <div class="font-estedad-medium">
                         <span>سبد خرید</span>
-                        <span id="product-count" class="text-sm">(4)</span>
+                        <span id="product-count" class="text-sm"></span>
                     </div>
                     <!-- trash icon -->
-                    <svg class="w-6 h-6">
+                    <svg id="removeAll" class="w-6 h-6">
                         <use href="#trash"></use>
                     </svg>
                 </div>
@@ -339,9 +339,20 @@
 
             </div>
         </section>
+        <!-- empty basket section -->
+        <section id="emptyBasket" class="hidden flex justify-center items-center pb-12">
+            <div class="flex justify-center items-center w-[1224px] h-[422px] rounded-md border border-gray-4">
+                
+                <div class="flex flex-col justify-center items-center gap-y-6">
+                    <span class="text-xl text-gray-7">شما در حال حاضر هیچ سفارشی ثبت نکرده‌اید!</span>
+                    <!-- menu button -->
+                    <span class="flex items-center justify-center w-48 h-10 border border-primary rounded-md text-primary font-estedad-medium">منوی رستوران</span>
+                </div>
+            
+            </div>
+        </section>
     </main>
 
-    <div id="nigga">hi its me</div>
     
     <!-- footer -->
     <footer id="footer" class="relative">
