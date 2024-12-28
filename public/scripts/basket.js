@@ -1,16 +1,43 @@
 // functions
 function removeBasketItem(event){
     // removing from ui
-    let mainParent = event.target.parentElement.parentElement.parentElement.parentElement
-    let productName = mainParent.querySelector('.productName').innerHTML
-    mainParent.remove()
+    let mainParent = event.target.parentElement.parentElement.parentElement.parentElement;
+    let productName = mainParent.querySelector('.productName').innerHTML;
+    mainParent.remove();
 
     // removing from local storage
-    let localFoods = JSON.parse(localStorage.getItem('localFoods'))
+    let localFoods = JSON.parse(localStorage.getItem('localFoods'));
     let newLocal = localFoods.filter((item)=>{
-        return item != productName
+        return item != productName;
+    });
+    localStorage.setItem('localFoods' , JSON.stringify(newLocal));
+
+    // removing from basket
+    basket = basket.filter((item)=>{
+        return item.name != productName
     })
-    localStorage.setItem('localFoods' , JSON.stringify(newLocal))
+
+    basketInfoUpdater()
+}
+
+function basketInfoUpdater(){
+    // products count
+    const productCount = document.querySelector('#product-count');
+    productCount.innerHTML = `(${basket.length})`;
+
+    // total discount
+    const totalDiscount = document.querySelector('#totalDiscount');
+    let totalDiscountNumber = 0
+    let totalPriceNumber = 0
+    basket.forEach((item)=>{
+        totalDiscountNumber += item.discountAmount
+        totalPriceNumber += item.price - item.discountAmount
+    })
+    totalDiscount.innerHTML = totalDiscountNumber
+
+    // total price
+    const totalPrice = document.querySelector('#totalPrice');
+    totalPrice.innerHTML = totalPriceNumber
 }
 
 function generateStars(item){
@@ -273,7 +300,7 @@ const products = [
     // Appetizers
     { id: 13, name: "فلافل", src: "../images/products/falafel.png", category: "Appetizer", price: "90000", count : 0, hasDiscount: true, discountAmount: 10000, discountPercent: 11, score: 3 },
     { id: 14, name: "باقالا قاتوق", src: "../images/products/baghala.png", category: "Appetizer", price: "100000", count : 0, hasDiscount: true, discountAmount: 20000, discountPercent: 20, score: 4 },
-    { id: 15, name: "میرزا قاسمی", src: "../images/products/mirza-ghasemi.png", category: "Appetizer", price: "110000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
+    { id: 15, name: "میرزا قاسمی", src: "../images/products/mirza-qhasemi.png", category: "Appetizer", price: "110000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
     { id: 16, name: "کشک بادمجان", src: "../images/products/kashk-bademjan.png", category: "Appetizer", price: "120000", count : 0, hasDiscount: true, discountAmount: 15000, discountPercent: 13, score: 5 },
     { id: 17, name: "کوکو سبزی", src: "../images/products/koko-sabzi.png", category: "Appetizer", price: "100000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
     { id: 18, name: "دلمه برگ مو", src: "../images/products/dolme-barg.png", category: "Appetizer", price: "110000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
@@ -381,7 +408,7 @@ branchButtons.forEach((branchBtn)=>{
 
 const localFoods = JSON.parse(localStorage.getItem('localFoods')) || [];
 
-const basket = [];
+let basket = [];
 
 function addFoodsFromLocal(){
     localFoods.forEach((foodName)=>{
@@ -449,6 +476,9 @@ function addFoodsToWebsite(outList , wrapper){
 };
 addFoodsToWebsite(basket , basketFoodsFragment)
 basketFoodWrapper.append(basketFoodsFragment)
+
+// basket information section
+basketInfoUpdater()
 
 
 
