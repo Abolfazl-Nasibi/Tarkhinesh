@@ -13,6 +13,18 @@ function removeBasketItem(event){
     localStorage.setItem('localFoods' , JSON.stringify(newLocal))
 }
 
+function generateStars(item){
+    let starsHtml = ''
+    for (let i = 0 ; i < 5 ;i++ ){
+        if (i < item.score){
+            starsHtml += '<img src="../images/Star.png" alt="">'
+        }else{
+            starsHtml += '<img src="../images/star-empt.png" alt="">'
+        }
+    }
+    return starsHtml
+}
+
 
 // mobile menu element selection ----------------------------------------------------------------------------------------------------
 
@@ -406,11 +418,7 @@ function addFoodsToWebsite(outList , wrapper){
                         <div class="flex">
                             <!-- stars -->
                             <span class="flex child:w-6 child:h-6">
-                                <img src="../images/star-empt.png" alt="">
-                                <img src="../images/star-empt.png" alt="">
-                                <img src="../images/Star.png" alt="">
-                                <img src="../images/Star.png" alt="">
-                                <img src="../images/Star.png" alt="">
+                                ${generateStars(listItem)}
                             </span>
                             
                         </div>
@@ -441,7 +449,6 @@ function addFoodsToWebsite(outList , wrapper){
 };
 addFoodsToWebsite(basket , basketFoodsFragment)
 basketFoodWrapper.append(basketFoodsFragment)
-
 
 
 
