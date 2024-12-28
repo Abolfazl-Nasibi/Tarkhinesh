@@ -1,3 +1,19 @@
+// functions
+function removeBasketItem(event){
+    // removing from ui
+    let mainParent = event.target.parentElement.parentElement.parentElement.parentElement
+    let productName = mainParent.querySelector('.productName').innerHTML
+    mainParent.remove()
+
+    // removing from local storage
+    let localFoods = JSON.parse(localStorage.getItem('localFoods'))
+    let newLocal = localFoods.filter((item)=>{
+        return item != productName
+    })
+    localStorage.setItem('localFoods' , JSON.stringify(newLocal))
+}
+
+
 // mobile menu element selection ----------------------------------------------------------------------------------------------------
 
 const mobileMenuIcon = document.querySelector('#mobile-menu-icon');
@@ -256,7 +272,6 @@ const products = [
     { id: 23, name: "پاکورا سبزیجات", src: "../images/products/pakoura.png", category: "Appetizer", price: "120000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
 
     // Desserts
-    { id: 24, name: "پاستا سبزیجات (Dessert)", src: "../images/products/pasta-sabzi.png", category: "Dessert", price: "100000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 5 },
     { id: 25, name: "دلمه برگ مو (Dessert)", src: "../images/products/dolme-barg.png", category: "Dessert", price: "110000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 3 },
     { id: 26, name: "کوفته برنجی (Dessert)", src: "../images/products/kufte-berenji.png", category: "Dessert", price: "90000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 4 },
     { id: 27, name: "پاکورا سبزیجات (Dessert)", src: "../images/products/pakoura.png", category: "Dessert", price: "120000", count : 0, hasDiscount: false, discountAmount: 0, discountPercent: 0, score: 2 },
@@ -374,17 +389,18 @@ addFoodsFromLocal();
 
 // add foods html obj to website
 const basketFoodWrapper = document.querySelector('#basketFoodsWrapper');
-const basketFoodsFragment = document.createDocumentFragment()
+const basketFoodsFragment = document.createDocumentFragment();
 
 function addFoodsToWebsite(outList , wrapper){
     outList.forEach((listItem)=>{
         let mainDiv = document.createElement('div')
-        mainDiv.classList = 'flex items-center h-40 border border-gray-4 rounded-lg overflow-hidden';
+        mainDiv.classList = '';
         mainDiv.innerHTML = `
-                    <img src="../images/products/pasta-sabzi.png" alt="" class="w-[169px] h-full object-cover">
+                <div class='flex items-center h-40 border border-gray-4 rounded-lg overflow-hidden'>
+                    <img src="${listItem.src}" alt="" class="w-[169px] h-full object-cover">
                     <div class=" h-full w-[295px] flex flex-col items-start justify-between gap-y-1 pr-8 py-4">
                         <!-- title and  -->
-                        <span class="font-estedad-bold text-xl">${listItem.name}</span>
+                        <span class="productName font-estedad-bold text-xl">${listItem.name}</span>
                         <!-- resources -->
                         <span class="h-[50px] flex items-center text-sm">مواد اولیه محصول...</span>
                         <div class="flex">
@@ -401,8 +417,8 @@ function addFoodsToWebsite(outList , wrapper){
                     </div>
                     <div class="h-full flex  flex-col items-end justify-between px-6 py-4">
                         <!-- trash icon -->
-                        <div class="flex items-start justify-end">
-                            <svg class="w-6 h-6">
+                        <div class="flex items-start justify-end" >
+                            <svg class="w-6 h-6"  onclick='removeBasketItem(event)'>
                                 <use href="#trash"></use>
                             </svg>
                         </div>
@@ -418,12 +434,14 @@ function addFoodsToWebsite(outList , wrapper){
                             <span class="text-lg">تومان</span>
                         </div>
                     </div>
+                </div>
         `;
         wrapper.append(mainDiv)
     })
 };
 addFoodsToWebsite(basket , basketFoodsFragment)
 basketFoodWrapper.append(basketFoodsFragment)
+
 
 
 
