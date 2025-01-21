@@ -82,7 +82,7 @@ const menuLinks = [
         hasMobileMenu : true,
         active : false,
         link : '#',
-        specialId : ''
+        specialId : 'menu'
     },
     {
         id : 4,
@@ -196,7 +196,7 @@ function createMenuItem(obj,isMobile = false){
             menuLiPlaceHolder.classList.add('group')
         }else{
             menuHtmlPlaceHolder = `
-                <a href="#" class="${obj.active ? 'font-estedad-bold text-primary border-b border-primary' : ''}">${obj.content}</a>
+                <a href="${obj.content == 'منو' ? 'menu.html' : '#'}" class="${obj.active ? 'font-estedad-bold text-primary border-b border-primary' : ''}">${obj.content}</a>
                 <svg class="w-4 h-4">
                     <use href="#arrow-down"></use>
                 </svg>
@@ -459,4 +459,10 @@ branchButtons.forEach((branchBtn)=>{
         console.log(clickedBranchObj);
         window.location.href = `http://127.0.0.1:5501/public/html/branches.html?${clickedBranchObj.htmlId}`
     })
+})
+
+// made menu link clickable
+const menuElem = document.querySelector('#menu');
+menuElem.addEventListener('click' , ()=>{
+    window.location.href = 'menu.html'
 })

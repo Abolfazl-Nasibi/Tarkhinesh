@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/app.css">
     <link rel="stylesheet" href="../styles/swiper-bundle.min.css">
-    <script src="../scripts/branches.js" defer></script>
+    <script src="../scripts/menu.js" defer></script>
     
 </head>
 <body class="relative font-estedad-regular overflow-x-hidden text-gray-8">
@@ -239,7 +239,31 @@
         </div>
     </div>
 
-    
+    <!--slider section -->
+    <section id="sliderSection" class="relative">
+            
+        <div id="slider" class="w-full h-44 lg:h-[336px] bg-black overflow-hidden relative">
+        </div>
+        <!-- next and prev buttons -->
+        <button class="hidden lg:inline-block prev absolute left-9 top-36 text-white">
+            <svg class="w-8 h-8 rotate-90">
+                <use href="#arrow-down"></use>
+            </svg>
+        </button>
+        <button class="hidden lg:inline-block next absolute right-9 top-36 text-white">
+            <svg class="w-8 h-8 -rotate-90">
+                <use href="#arrow-down"></use>
+            </svg>
+        </button>
+        <!-- dots section -->
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 lg:w-40">
+            <img src="../images/slider-rectangle.png" alt="">
+            <!-- dots -->
+            <div class="dots-container flex items-center justify-center w-full h-full gap-x-1 absolute left-0 top-0">
+            </div>
+        </div>
+
+    </section>
 
     <!-- mobile search box -->
     <div class="lg:hidden flex justify-between items-center px-5 py-2 mt-4 mx-5 text-gray-8 border border-gray-4 rounded-sm">
