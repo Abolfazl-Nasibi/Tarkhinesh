@@ -752,6 +752,10 @@ video {
   right: 1rem;
 }
 
+.right-6 {
+  right: 1.5rem;
+}
+
 .right-9 {
   right: 2.25rem;
 }
@@ -782,6 +786,10 @@ video {
 
 .top-56 {
   top: 14rem;
+}
+
+.top-6 {
+  top: 1.5rem;
 }
 
 .top-8 {
@@ -927,10 +935,6 @@ video {
   height: 100vh;
 }
 
-.h-\[261px\] {
-  height: 261px;
-}
-
 .h-\[422px\] {
   height: 422px;
 }
@@ -1051,10 +1055,6 @@ video {
   width: 496px;
 }
 
-.w-\[520px\] {
-  width: 520px;
-}
-
 .w-\[600px\] {
   width: 600px;
 }
@@ -1102,6 +1102,28 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-appear {
+  animation: appear 1.5s ease-out;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1144,10 +1166,6 @@ video {
 
 .items-center {
   align-items: center;
-}
-
-.justify-normal {
-  justify-content: normal;
 }
 
 .justify-end {
@@ -1391,6 +1409,10 @@ video {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .p-2 {

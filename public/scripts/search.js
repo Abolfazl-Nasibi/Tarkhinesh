@@ -292,7 +292,7 @@ function searchProduct(wrapper,array,searchedItem){
                                 </div>
                                 ${!product.hasDiscount ? `<div class="flex justify-end text-gray-8 font-estedad-medium"><span>${convertToPersianNumbers(product.price)}</span>   <span>تومان</span>  </div>` :`<div><div class="flex items-center justify-end gap-x-2 font-estedad-bold text-2xs"><span class="text-gray-5 line-through">${convertToPersianNumbers(product.price)}</span><span class="flex items-center justify-center w-8 h-4 text-error rounded-xl bg-error-extraLight">%${convertToPersianNumbers(product.discountPercent)}</span></div><div class="text-base text-gray-8"><span>${convertToPersianNumbers(product.price - product.discountAmount)}</span><span>تومان</span></div></div>` }
                             </div>
-                            <button class="w-64 h-10 bg-primary rounded text-white text-lg">افزودن به سبد خرید</button>
+                            <button class="w-64 h-10 bg-primary rounded text-white text-lg" onclick='addProductToLocal(event)'>افزودن به سبد خرید</button>
                 `);
             wrapper.append(mainDiv);
             foundedItems.push(product);
@@ -373,3 +373,19 @@ branchesLinks.forEach((branchL)=>{
     })
 })
 
+// add to basket
+const addedDisplay = document.querySelector('#addedDisplay');
+function addProductToLocal(event){
+    const clickedProductName = event.target.parentElement.firstElementChild.innerHTML
+    localFoods = JSON.parse(localStorage.getItem('localFoods')) || [];
+    localFoods.push(clickedProductName);
+    localStorage.setItem('localFoods' , JSON.stringify(localFoods))
+
+    addedDisplay.classList.toggle('hidden');
+    addedDisplay.classList.toggle('fixed');
+
+    setTimeout(() => {
+        addedDisplay.classList.toggle('hidden');
+        addedDisplay.classList.toggle('fixed');
+    }, 1500);
+};

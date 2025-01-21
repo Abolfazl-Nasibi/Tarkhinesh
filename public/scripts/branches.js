@@ -578,10 +578,18 @@ branchLocationElem.forEach((item)=>{
 })
 
 // add to basket
-
+const addedDisplay = document.querySelector('#addedDisplay');
 function addProductToLocal(event){
     const clickedProductName = event.target.parentElement.firstElementChild.innerHTML
     localFoods = JSON.parse(localStorage.getItem('localFoods')) || [];
     localFoods.push(clickedProductName);
     localStorage.setItem('localFoods' , JSON.stringify(localFoods))
+
+    addedDisplay.classList.toggle('hidden');
+    addedDisplay.classList.toggle('fixed');
+
+    setTimeout(() => {
+        addedDisplay.classList.toggle('hidden');
+        addedDisplay.classList.toggle('fixed');
+    }, 1500);
 }

@@ -11,7 +11,7 @@
     <script src="../scripts/branches.js" defer></script>
     
 </head>
-<body class="font-estedad-regular overflow-x-hidden text-gray-8">
+<body class="relative font-estedad-regular overflow-x-hidden text-gray-8">
     <!-- all app icons -->
     <svg class="hidden">
 
@@ -589,11 +589,14 @@
         </div>
     </div>
 
+    <!-- add to basket overlay -->
+    <div id="addedDisplay" class="hidden right-6 top-6 z-20 bg-primary p-10 rounded-md text-white animate-appear">محصول به سبد خرید اضافه شد</div>
+
     <!-- overlay -->
     <div id="mobile-menu-box-blur" class="z-20 hidden top-0 left-0 w-[100vw] h-[100vh] bg-black/50 backdrop-blur-sm"></div>
 
     <!-- swiper slider scripts -->
-    <script src="../scripts/swiper-bundle.min.js" ></script>
+    <script src="../scripts/swiper-bundle.min.js" ></script>    
     <script defer>
         var swiper = new Swiper(".swiper", {
           slidesPerView: 5,

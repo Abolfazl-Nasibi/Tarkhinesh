@@ -20,6 +20,14 @@ module.exports = {
       'black' : '#0C0C0C',
     },
     extend: {
+      keyframes :{
+        appear :{
+          '0%' :{ opacity : '0'},
+          '20%' :{ opacity : '1'},
+          '80%' :{ opacity : '1'},
+          '100%' :{ opacity : '0'}
+      }
+      },
       colors : {
         'primary' : '#417F56',
         'tint-1' : '#E5F2E9',
@@ -52,6 +60,9 @@ module.exports = {
       spacing : {
         '12' : '3rem'
       },
+      animation :{
+        appear : 'appear 1.5s ease-out'
+      }
       
     },
   },
